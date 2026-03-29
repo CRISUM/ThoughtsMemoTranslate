@@ -6,6 +6,7 @@
 
 import json
 import os
+import re
 import uuid
 from datetime import datetime
 from pathlib import Path
@@ -78,13 +79,28 @@ async def save_glossary(request: Request):
 @app.post("/api/glossary/entry")
 async def add_glossary_entry(request: Request):
     entry = await request.json()
-    glossary = read_json(GLOSSARY_FILE, [])
     entry["id"] = str(uuid.uuid4())[:8]
-    entry.setdefault("tags", [])
+    entry.setdefault("tags", ["default"])
     entry.setdefault("note", "")
+    glossary = read_json(GLOSSARY_FILE, [])
     glossary.append(entry)
     write_json(GLOSSARY_FILE, glossary)
     return entry
+
+
+@app.put("/api/glossary/entry/{entry_id}")
+async def update_glossary_entry(entry_id: str, request: Request):
+    """更新单条术语"""
+    patch = await request.json()
+    glossary = read_json(GLOSSARY_FILE, [])
+    for e in glossary:
+        if e.get("id") == entry_id:
+            for key in ("en", "zh", "note", "tags"):
+                if key in patch:
+                    e[key] = patch[key]
+            write_json(GLOSSARY_FILE, glossary)
+            return e
+    raise HTTPException(404, "Entry not found")
 
 
 @app.delete("/api/glossary/entry/{entry_id}")
@@ -109,6 +125,7 @@ def list_projects():
                 "createdAt": p["meta"]["createdAt"],
                 "total": p["meta"]["total"],
                 "done": sum(1 for s in p.get("segments", []) if s.get("final")),
+                "tags": p["meta"].get("tags", []),
             })
         except Exception:
             pass
@@ -126,6 +143,7 @@ async def create_project(request: Request):
             "mode": data["mode"],  # "translate" | "proofread"
             "createdAt": datetime.now().isoformat(),
             "total": len(data["entries"]),
+            "tags": data.get("tags", []),  # 项目标签
         },
         "entries": data["entries"],
         "segments": [
@@ -139,7 +157,7 @@ async def create_project(request: Request):
             for e in data["entries"]
         ],
         "cursor": 0,
-        "aiCache": {},  # bulk translate cache: {"claude": [...], "gpt": [...], "gemini": [...]}
+        "aiCache": {},
     }
     write_json(PROJECTS_DIR / f"{pid}.json", project)
     return {"id": pid}
@@ -163,6 +181,21 @@ async def update_project(pid: str, request: Request):
     return {"ok": True}
 
 
+@app.patch("/api/projects/{pid}/meta")
+async def update_project_meta(pid: str, request: Request):
+    """更新项目元数据（如标签）"""
+    f = PROJECTS_DIR / f"{pid}.json"
+    if not f.exists():
+        raise HTTPException(404)
+    project = read_json(f)
+    patch = await request.json()
+    for key in ("tags",):
+        if key in patch:
+            project["meta"][key] = patch[key]
+    write_json(f, project)
+    return {"ok": True}
+
+
 @app.patch("/api/projects/{pid}/segment/{idx}")
 async def update_segment(pid: str, idx: int, request: Request):
     """部分更新某段落（避免每次保存整个项目）"""
@@ -172,7 +205,6 @@ async def update_segment(pid: str, idx: int, request: Request):
     project = read_json(f)
     patch = await request.json()
     seg = project["segments"][idx]
-    # 允许更新的字段
     for key in ("final", "claude", "gpt", "gemini"):
         if key in patch:
             seg[key] = patch[key]

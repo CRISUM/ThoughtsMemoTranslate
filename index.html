@@ -136,27 +136,16 @@ body {
   box-shadow: var(--shadow);
 }
 .action-card:hover { transform: translateY(-2px); box-shadow: var(--shadow2); border-color: var(--gold2); }
-.action-card-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-}
+.action-card-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
 .action-card h3 {
   font-family: 'Crimson Pro', serif;
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
-.action-card p {
-  font-size: 0.8rem;
-  color: var(--dust);
-  line-height: 1.5;
-}
+.action-card p { font-size: 0.8rem; color: var(--dust); line-height: 1.5; }
 
-/* Recent projects */
-.home-section {
-  width: 100%;
-  max-width: 640px;
-}
+.home-section { width: 100%; max-width: 640px; }
 .home-section-title {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem;
@@ -198,14 +187,9 @@ body {
   color: var(--dust);
 }
 .project-delete {
-  background: none;
-  border: none;
-  color: var(--mist);
-  cursor: pointer;
-  font-size: 0.85rem;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
-  transition: all 0.15s;
+  background: none; border: none; color: var(--mist);
+  cursor: pointer; font-size: 0.85rem; padding: 0.2rem 0.4rem;
+  border-radius: 3px; transition: all 0.15s;
 }
 .project-delete:hover { color: var(--red); background: #fef2f2; }
 
@@ -213,64 +197,38 @@ body {
    MODALS
 ══════════════════════════════════════ */
 .modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(26,24,20,0.5);
-  z-index: 500;
-  align-items: center;
-  justify-content: center;
+  display: none; position: fixed; inset: 0;
+  background: rgba(26,24,20,0.5); z-index: 500;
+  align-items: center; justify-content: center;
 }
 .modal-overlay.show { display: flex; }
 .modal {
-  background: var(--paper);
-  border-radius: 10px;
-  padding: 2rem;
-  width: 500px;
-  max-width: 95vw;
-  box-shadow: var(--shadow2);
-  max-height: 90vh;
-  overflow-y: auto;
+  background: var(--paper); border-radius: 10px; padding: 2rem;
+  width: 500px; max-width: 95vw; box-shadow: var(--shadow2);
+  max-height: 90vh; overflow-y: auto;
 }
 .modal h2 {
-  font-family: 'Crimson Pro', serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: var(--ink);
+  font-family: 'Crimson Pro', serif; font-size: 1.4rem;
+  font-weight: 600; margin-bottom: 1.5rem; color: var(--ink);
 }
 .form-field { margin-bottom: 1.2rem; }
 .form-label {
-  display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--dust);
-  margin-bottom: 0.4rem;
+  display: block; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--dust); margin-bottom: 0.4rem;
 }
 input[type=text], input[type=password], textarea, select {
-  width: 100%;
-  background: var(--warm);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--r);
-  outline: none;
-  transition: border-color 0.15s;
+  width: 100%; background: var(--warm); border: 1px solid var(--border);
+  color: var(--ink); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; padding: 0.6rem 0.8rem; border-radius: var(--r);
+  outline: none; transition: border-color 0.15s;
 }
 input:focus, textarea:focus, select:focus { border-color: var(--gold2); }
 textarea { resize: vertical; line-height: 1.5; }
 .upload-zone {
-  border: 1.5px dashed var(--mist);
-  border-radius: var(--r);
-  padding: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: var(--warm);
+  border: 1.5px dashed var(--mist); border-radius: var(--r);
+  padding: 1.5rem; text-align: center; cursor: pointer;
+  transition: all 0.2s; background: var(--warm);
 }
 .upload-zone:hover, .upload-zone.drag { border-color: var(--gold2); background: var(--paper2); }
 .upload-zone p { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--dust); }
@@ -279,15 +237,10 @@ input[type=file] { display: none; }
 
 .modal-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1.5rem; }
 .btn {
-  padding: 0.55rem 1.2rem;
-  border-radius: var(--r);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: none;
-  transition: all 0.15s;
-  letter-spacing: 0.03em;
+  padding: 0.55rem 1.2rem; border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  font-weight: 500; cursor: pointer; border: none;
+  transition: all 0.15s; letter-spacing: 0.03em;
 }
 .btn-primary { background: var(--ink); color: var(--paper); }
 .btn-primary:hover { background: var(--ink2); }
@@ -301,32 +254,20 @@ input[type=file] { display: none; }
    SETTINGS PAGE
 ══════════════════════════════════════ */
 #page-settings {
-  overflow-y: auto;
-  padding: 2rem 2rem 4rem;
-  max-width: 720px;
-  margin: 0 auto;
-  width: 100%;
-  display: none;
-  flex-direction: column;
+  overflow-y: auto; padding: 2rem 2rem 4rem;
+  max-width: 720px; margin: 0 auto; width: 100%;
+  display: none; flex-direction: column;
 }
 #page-settings.show { display: flex; flex: 1; }
 .settings-section {
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.5rem; margin-bottom: 1.5rem;
   box-shadow: var(--shadow);
 }
 .settings-section h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--dust);
-  margin-bottom: 1.2rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.12em; color: var(--dust);
+  margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--border);
 }
 .settings-section textarea { min-height: 140px; font-size: 0.78rem; }
 
@@ -334,509 +275,321 @@ input[type=file] { display: none; }
    WORKSPACE
 ══════════════════════════════════════ */
 #page-workspace {
-  flex: 1;
-  overflow: hidden;
-  display: none;
-  flex-direction: row;
+  flex: 1; overflow: hidden; display: none; flex-direction: row;
 }
 #page-workspace.show { display: flex; }
 
-/* Sidebar */
 .ws-sidebar {
-  width: 240px;
-  flex-shrink: 0;
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  background: var(--paper2);
-  overflow: hidden;
+  width: 240px; flex-shrink: 0; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; background: var(--paper2); overflow: hidden;
 }
 .ws-sidebar-header {
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-  background: var(--paper);
+  padding: 0.8rem 1rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-shrink: 0; background: var(--paper);
 }
 .ws-sidebar-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--dust);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--dust);
 }
 .ws-sidebar-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--ink3);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink3);
 }
 .ws-sidebar-list { overflow-y: auto; flex: 1; }
 
 .seg-item {
-  padding: 0.6rem 1rem;
-  border-bottom: 1px solid var(--border2);
-  cursor: pointer;
-  transition: background 0.1s;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.5rem;
+  padding: 0.6rem 1rem; border-bottom: 1px solid var(--border2);
+  cursor: pointer; transition: background 0.1s;
+  display: flex; align-items: flex-start; gap: 0.5rem;
 }
 .seg-item:hover { background: var(--paper); }
 .seg-item.active { background: var(--warm); border-left: 2px solid var(--gold2); }
 .seg-num {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--mist);
-  flex-shrink: 0;
-  padding-top: 2px;
-  width: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: var(--mist); flex-shrink: 0; padding-top: 2px; width: 20px;
 }
 .seg-preview {
-  font-size: 0.76rem;
-  color: var(--ink3);
-  line-height: 1.4;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  flex: 1;
+  font-size: 0.76rem; color: var(--ink3); line-height: 1.4;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; flex: 1;
 }
 .seg-status {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--mist);
-  flex-shrink: 0;
-  margin-top: 5px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--mist); flex-shrink: 0; margin-top: 5px;
 }
-.seg-status.done { background: var(--teal); }     /* 已确认 */
-.seg-status.partial { background: var(--gold2); } /* AI 有译文 */
-.seg-status.modified { background: #f97316; }      /* 编辑中未确认 */
+.seg-status.done { background: var(--teal); }
+.seg-status.partial { background: var(--gold2); }
+.seg-status.modified { background: #f97316; }
 
 .sidebar-legend {
-  padding: 0.45rem 1rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-  background: var(--paper);
-  flex-shrink: 0;
+  padding: 0.45rem 1rem; border-top: 1px solid var(--border);
+  display: flex; gap: 0.7rem; flex-wrap: wrap;
+  background: var(--paper); flex-shrink: 0;
 }
 .legend-item {
   display: flex; align-items: center; gap: 0.3rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.58rem; color: var(--dust);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: var(--dust);
 }
 .legend-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 
-/* Main editor */
 .ws-main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  background: var(--warm);
+  flex: 1; display: flex; flex-direction: column;
+  overflow: hidden; background: var(--warm);
 }
 
-/* Original text bar */
+/* Project tags bar */
+.ws-project-tags {
+  background: var(--paper); border-bottom: 1px solid var(--border);
+  padding: 0.35rem 1.4rem; display: flex; align-items: center;
+  gap: 0.5rem; flex-shrink: 0; min-height: 30px;
+}
+.ws-project-tags-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--dust); flex-shrink: 0;
+}
+.project-tag {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  padding: 0.1rem 0.45rem; border-radius: 3px;
+  background: #e8f0fc; border: 1px solid #c5d8f0; color: var(--blue);
+}
+.project-tag .tag-remove {
+  cursor: pointer; opacity: 0.5; font-size: 0.7rem;
+}
+.project-tag .tag-remove:hover { opacity: 1; color: var(--red); }
+.ws-project-tags .add-tag-btn {
+  background: none; border: 1px dashed var(--mist); color: var(--dust);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  padding: 0.1rem 0.4rem; border-radius: 3px; cursor: pointer;
+}
+.ws-project-tags .add-tag-btn:hover { border-color: var(--gold2); color: var(--gold); }
+
 .ws-original {
-  background: var(--paper);
-  border-bottom: 1px solid var(--border);
-  padding: 0.9rem 1.4rem;
-  flex-shrink: 0;
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  min-height: 52px;
-  max-height: 40vh;
-  overflow-y: auto;
-  position: relative;
+  background: var(--paper); border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.4rem; flex-shrink: 0;
+  display: flex; gap: 1rem; align-items: flex-start;
+  min-height: 52px; max-height: 40vh; overflow-y: auto; position: relative;
 }
 .ws-original-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--dust);
-  flex-shrink: 0;
-  padding-top: 2px;
-  width: 40px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--dust);
+  flex-shrink: 0; padding-top: 2px; width: 40px;
 }
 .ws-original-text {
-  flex: 1;
-  font-family: 'Crimson Pro', serif;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--ink2);
+  flex: 1; font-family: 'Crimson Pro', serif; font-size: 0.95rem;
+  line-height: 1.65; color: var(--ink2);
 }
-/* Glossary highlights */
 .ws-original-text .hl-term {
-  background: #fef9c3;
-  border-bottom: 1.5px solid var(--gold2);
-  cursor: help;
-  position: relative;
+  background: #fef9c3; border-bottom: 1.5px solid var(--gold2);
+  cursor: help; position: relative;
 }
-.ws-original-nav {
-  display: flex;
-  gap: 0.3rem;
-  flex-shrink: 0;
+/* Enhanced tooltip for glossary terms — drops DOWN */
+.hl-term { position: relative; }
+.hl-term-tooltip {
+  display: none; position: fixed;
+  background: var(--ink); color: var(--paper);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+  padding: 0.6rem 0.9rem; border-radius: 5px;
+  z-index: 9999; box-shadow: var(--shadow2); line-height: 1.6;
+  min-width: 240px; max-width: 420px; white-space: normal;
+  pointer-events: none;
 }
+.hl-term-tooltip::after {
+  content: ''; position: absolute; bottom: 100%; left: 24px;
+  border: 5px solid transparent;
+  border-bottom-color: var(--ink);
+}
+.hl-term-tooltip .tt-zh { color: var(--gold2); font-weight: 500; }
+.hl-term-tooltip .tt-note { color: var(--fog); font-style: italic; margin-top: 2px; }
+.hl-term-tooltip .tt-tags { color: var(--mist); font-size: 0.6rem; margin-top: 3px; }
+
+/* Click-to-insert cursor style */
+.hl-term { cursor: pointer; }
+
+.ws-original-nav { display: flex; gap: 0.3rem; flex-shrink: 0; }
 .nav-btn {
-  width: 28px; height: 28px;
-  background: var(--paper2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  color: var(--dust);
+  width: 28px; height: 28px; background: var(--paper2);
+  border: 1px solid var(--border); border-radius: 4px;
+  cursor: pointer; font-size: 0.85rem; color: var(--dust);
   display: flex; align-items: center; justify-content: center;
   transition: all 0.15s;
 }
 .nav-btn:hover { border-color: var(--gold2); color: var(--ink); }
 .nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
 
-/* Glossary hint bar */
 .ws-glossary-bar {
-  background: #fffbeb;
-  border-bottom: 1px solid #fde68a;
-  padding: 0.4rem 1.4rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  flex-shrink: 0;
-  min-height: 32px;
+  background: #fffbeb; border-bottom: 1px solid #fde68a;
+  padding: 0.4rem 1.4rem; display: flex; flex-wrap: wrap;
+  gap: 0.5rem; align-items: center; flex-shrink: 0; min-height: 32px;
 }
 .glossary-bar-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--gold);
-  flex-shrink: 0;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); flex-shrink: 0;
 }
 .glossary-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  background: white;
-  border: 1px solid #fde68a;
-  border-radius: 3px;
-  padding: 0.1rem 0.5rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  background: white; border: 1px solid #fde68a; border-radius: 3px;
+  padding: 0.1rem 0.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
   cursor: default;
 }
 .glossary-chip .en { color: var(--ink3); }
 .glossary-chip .arrow { color: var(--mist); }
 .glossary-chip .zh { color: var(--gold); font-weight: 500; }
 .glossary-bar-add {
-  margin-left: auto;
-  background: none;
-  border: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--dust);
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  margin-left: auto; background: none; border: none;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  color: var(--dust); cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
 }
 .glossary-bar-add:hover { color: var(--gold); }
 
-/* AI columns area */
 .ws-columns {
-  flex: 1;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border-bottom: 1px solid var(--border);
+  flex: 1; overflow: hidden; display: grid;
+  grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--border);
 }
 
 .ai-col {
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid var(--border);
-  overflow: hidden;
-  background: var(--paper);
+  display: flex; flex-direction: column; border-right: 1px solid var(--border);
+  overflow: hidden; background: var(--paper);
 }
 .ai-col:last-child { border-right: none; }
 
 .ai-col-header {
-  padding: 0.55rem 1rem;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-shrink: 0;
-  background: var(--paper2);
-  position: relative;
+  padding: 0.55rem 1rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 0.5rem;
+  flex-shrink: 0; background: var(--paper2); position: relative;
 }
 .ai-progress-bar {
-  position: absolute;
-  bottom: 0; left: 0;
-  height: 2px;
-  background: var(--gold2);
-  transition: width 0.4s ease;
-  border-radius: 0 1px 1px 0;
+  position: absolute; bottom: 0; left: 0; height: 2px;
+  background: var(--gold2); transition: width 0.4s ease; border-radius: 0 1px 1px 0;
 }
 .ai-progress-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--dust);
-  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  color: var(--dust); margin-left: auto;
 }
 .ai-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .ai-name {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  flex: 1;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; flex: 1;
 }
 .ai-col-header .use-btn {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--dust);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.15s;
+  background: none; border: 1px solid var(--border); color: var(--dust);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  padding: 0.15rem 0.5rem; border-radius: 3px; cursor: pointer; transition: all 0.15s;
 }
 .ai-col-header .use-btn:hover { border-color: var(--gold2); color: var(--gold); }
 
 .ai-messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: 0.8rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  flex: 1; overflow-y: auto; padding: 0.8rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
 }
-.msg {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
+.msg { display: flex; flex-direction: column; gap: 0.2rem; }
 .msg-role {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.58rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--mist);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--mist);
 }
 .msg-body {
-  font-size: 0.82rem;
-  line-height: 1.65;
-  color: var(--ink2);
-  padding: 0.5rem 0.7rem;
-  border-radius: 4px;
-  background: var(--warm);
-  border: 1px solid var(--border2);
-  white-space: pre-wrap;
-  word-break: break-word;
+  font-size: 0.82rem; line-height: 1.65; color: var(--ink2);
+  padding: 0.5rem 0.7rem; border-radius: 4px; background: var(--warm);
+  border: 1px solid var(--border2); white-space: pre-wrap; word-break: break-word;
 }
 .msg.user .msg-body { background: #eef3fb; border-color: #c5d8f0; }
-.msg.loading .msg-body {
-  color: var(--dust);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+.msg.loading .msg-body { color: var(--dust); display: flex; align-items: center; gap: 0.5rem; }
 .spinner {
-  width: 12px; height: 12px;
-  border: 1.5px solid var(--mist);
-  border-top-color: var(--gold2);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  flex-shrink: 0;
+  width: 12px; height: 12px; border: 1.5px solid var(--mist);
+  border-top-color: var(--gold2); border-radius: 50%;
+  animation: spin 0.7s linear infinite; flex-shrink: 0;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .ai-input-area {
-  padding: 0.6rem;
-  border-top: 1px solid var(--border);
-  display: flex;
-  gap: 0.4rem;
-  flex-shrink: 0;
-  background: var(--paper2);
+  padding: 0.6rem; border-top: 1px solid var(--border);
+  display: flex; gap: 0.4rem; flex-shrink: 0; background: var(--paper2);
 }
 .ai-input {
-  flex: 1;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  font-family: 'Noto Serif SC', serif;
-  font-size: 0.78rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-  outline: none;
-  resize: none;
-  line-height: 1.5;
-  min-height: 36px;
-  max-height: 100px;
+  flex: 1; background: var(--paper); border: 1px solid var(--border);
+  color: var(--ink); font-family: 'Noto Serif SC', serif; font-size: 0.78rem;
+  padding: 0.4rem 0.6rem; border-radius: 4px; outline: none; resize: none;
+  line-height: 1.5; min-height: 36px; max-height: 100px;
 }
 .ai-input:focus { border-color: var(--gold2); }
 .ai-send {
-  background: var(--ink);
-  border: none;
-  color: var(--paper);
-  border-radius: 4px;
-  padding: 0 0.6rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  transition: opacity 0.15s;
-  flex-shrink: 0;
+  background: var(--ink); border: none; color: var(--paper);
+  border-radius: 4px; padding: 0 0.6rem; cursor: pointer;
+  font-size: 0.8rem; transition: opacity 0.15s; flex-shrink: 0;
 }
 .ai-send:hover { opacity: 0.8; }
 .ai-send:disabled { opacity: 0.3; cursor: not-allowed; }
 
-/* Final area */
 .ws-resize-handle {
-  height: 5px;
-  background: var(--paper2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  cursor: ns-resize;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s;
+  height: 5px; background: var(--paper2);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  cursor: ns-resize; flex-shrink: 0; display: flex;
+  align-items: center; justify-content: center; transition: background 0.15s;
 }
 .ws-resize-handle:hover { background: var(--paper3); }
 .ws-resize-handle::after {
-  content: '';
-  width: 32px; height: 2px;
-  background: var(--mist);
-  border-radius: 1px;
+  content: ''; width: 32px; height: 2px; background: var(--mist); border-radius: 1px;
 }
 .ws-final {
-  display: flex;
-  gap: 0.8rem;
-  padding: 0.8rem 1.4rem;
-  background: var(--paper);
-  align-items: flex-start;
-  flex-shrink: 0;
-  min-height: 80px;
-  max-height: 50vh;
-  overflow: hidden;
+  display: flex; gap: 0.8rem; padding: 0.8rem 1.4rem;
+  background: var(--paper); align-items: flex-start;
+  flex-shrink: 0; min-height: 80px; max-height: 50vh; overflow: hidden;
 }
 .ws-final-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--dust);
-  flex-shrink: 0;
-  padding-top: 0.55rem;
-  width: 40px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--dust);
+  flex-shrink: 0; padding-top: 0.55rem; width: 40px;
 }
 #final-text {
-  flex: 1;
-  background: var(--warm);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  font-family: 'Noto Serif SC', serif;
-  font-size: 0.88rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--r);
-  outline: none;
-  resize: none;
-  line-height: 1.7;
-  min-height: 48px;
-  transition: border-color 0.15s;
-  align-self: stretch;
+  flex: 1; background: var(--warm); border: 1px solid var(--border);
+  color: var(--ink); font-family: 'Noto Serif SC', serif; font-size: 0.88rem;
+  padding: 0.6rem 0.8rem; border-radius: var(--r); outline: none; resize: none;
+  line-height: 1.7; min-height: 48px; transition: border-color 0.15s; align-self: stretch;
 }
 #final-text:focus { border-color: var(--gold2); }
 .ws-final-btns { display: flex; flex-direction: column; gap: 0.4rem; flex-shrink: 0; }
 .btn-confirm {
-  padding: 0.45rem 1rem;
-  background: var(--teal);
-  color: white;
-  border: none;
-  border-radius: var(--r);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  font-weight: 500;
-  cursor: pointer;
-  white-space: nowrap;
+  padding: 0.45rem 1rem; background: var(--teal); color: white;
+  border: none; border-radius: var(--r); font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 500; cursor: pointer; white-space: nowrap;
   transition: opacity 0.15s;
 }
 .btn-confirm:hover { opacity: 0.85; }
 .btn-skip-ws {
-  padding: 0.35rem 1rem;
-  background: transparent;
-  color: var(--dust);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  cursor: pointer;
-  transition: all 0.15s;
+  padding: 0.35rem 1rem; background: transparent; color: var(--dust);
+  border: 1px solid var(--border); border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  cursor: pointer; transition: all 0.15s;
 }
 .btn-skip-ws:hover { border-color: var(--ink3); color: var(--ink); }
 
-/* Export bar */
 .ws-export-bar {
-  display: none;
-  padding: 0.55rem 1.4rem;
-  background: var(--paper2);
-  border-top: 1px solid var(--border);
-  align-items: center;
-  gap: 1rem;
-  flex-shrink: 0;
+  display: none; padding: 0.55rem 1.4rem; background: var(--paper2);
+  border-top: 1px solid var(--border); align-items: center; gap: 1rem; flex-shrink: 0;
 }
 .ws-export-bar.show { display: flex; }
 .export-info {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--dust);
-  flex: 1;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--dust); flex: 1;
 }
 .export-info span { color: var(--teal); font-weight: 500; }
 .btn-export {
-  padding: 0.4rem 1rem;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  color: var(--ink3);
-  border-radius: var(--r);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  cursor: pointer;
-  transition: all 0.15s;
+  padding: 0.4rem 1rem; background: var(--paper); border: 1px solid var(--border);
+  color: var(--ink3); border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
+  cursor: pointer; transition: all 0.15s;
 }
 .btn-export:hover { border-color: var(--gold2); color: var(--gold); }
 
-/* Loading overlay removed — progress shown inline */
-
-/* ══════════════════════════════════════
-   TOAST
-══════════════════════════════════════ */
 .toast {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
+  position: fixed; bottom: 1.5rem; left: 50%;
   transform: translateX(-50%) translateY(8px);
-  background: var(--ink);
-  color: var(--paper);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  z-index: 999;
-  opacity: 0;
-  transition: all 0.25s;
-  pointer-events: none;
-  white-space: nowrap;
+  background: var(--ink); color: var(--paper);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  padding: 0.6rem 1.2rem; border-radius: 20px; z-index: 999;
+  opacity: 0; transition: all 0.25s; pointer-events: none; white-space: nowrap;
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-/* Scrollbars */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--mist); border-radius: 2px; }
@@ -845,126 +598,49 @@ input[type=file] { display: none; }
    HISTORY PAGE
 ══════════════════════════════════════ */
 #page-history {
-  overflow-y: auto;
-  padding: 2rem 2rem 4rem;
-  background: var(--warm);
-  display: none;
-  flex-direction: column;
+  overflow-y: auto; padding: 2rem 2rem 4rem; background: var(--warm);
+  display: none; flex-direction: column;
 }
 #page-history.show { display: flex; flex: 1; }
 
 .page-header {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  max-width: 860px;
+  display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.5rem; max-width: 860px;
 }
-.page-title {
-  font-family: 'Crimson Pro', serif;
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: var(--ink);
-}
-.page-subtitle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--dust);
-}
+.page-title { font-family: 'Crimson Pro', serif; font-size: 1.6rem; font-weight: 300; color: var(--ink); }
+.page-subtitle { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--dust); }
 .page-actions { margin-left: auto; display: flex; gap: 0.5rem; }
 
-.history-search {
-  max-width: 860px;
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 0.6rem;
-}
-.history-search input {
-  flex: 1;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: var(--r);
-  outline: none;
-}
-.history-search input:focus { border-color: var(--gold2); }
-
 .history-table {
-  max-width: 860px;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+  max-width: 860px; background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow);
 }
 .history-table-header {
-  display: grid;
-  grid-template-columns: 2fr 80px 100px 80px 90px 60px;
-  padding: 0.5rem 1rem;
-  background: var(--paper2);
-  border-bottom: 1px solid var(--border);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--dust);
-  gap: 0.5rem;
+  display: grid; grid-template-columns: 2fr 80px 100px 80px 90px 60px;
+  padding: 0.5rem 1rem; background: var(--paper2); border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--dust); gap: 0.5rem;
 }
 .history-row {
-  display: grid;
-  grid-template-columns: 2fr 80px 100px 80px 90px 60px;
-  padding: 0.65rem 1rem;
-  border-bottom: 1px solid var(--border2);
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: background 0.1s;
+  display: grid; grid-template-columns: 2fr 80px 100px 80px 90px 60px;
+  padding: 0.65rem 1rem; border-bottom: 1px solid var(--border2);
+  align-items: center; gap: 0.5rem; cursor: pointer; transition: background 0.1s;
 }
 .history-row:last-child { border-bottom: none; }
 .history-row:hover { background: var(--paper2); }
 .history-filename {
-  font-size: 0.84rem;
-  color: var(--ink2);
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  font-size: 0.84rem; color: var(--ink2); overflow: hidden;
+  white-space: nowrap; text-overflow: ellipsis;
 }
 .history-cell {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--dust);
-  white-space: nowrap;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--dust); white-space: nowrap;
 }
-.history-progress-bar {
-  height: 3px;
-  background: var(--paper3);
-  border-radius: 2px;
-  overflow: hidden;
-  margin-top: 3px;
-}
-.history-progress-fill {
-  height: 100%;
-  background: var(--teal);
-  border-radius: 2px;
-  transition: width 0.3s;
-}
-.history-actions {
-  display: flex;
-  gap: 0.3rem;
-  justify-content: flex-end;
-}
+.history-progress-bar { height: 3px; background: var(--paper3); border-radius: 2px; overflow: hidden; margin-top: 3px; }
+.history-progress-fill { height: 100%; background: var(--teal); border-radius: 2px; transition: width 0.3s; }
+.history-actions { display: flex; gap: 0.3rem; justify-content: flex-end; }
 .icon-btn {
-  background: none;
-  border: 1px solid transparent;
-  color: var(--dust);
-  font-size: 0.8rem;
-  width: 26px; height: 26px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid transparent; color: var(--dust);
+  font-size: 0.8rem; width: 26px; height: 26px; border-radius: 4px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
   transition: all 0.15s;
 }
 .icon-btn:hover { background: var(--paper2); border-color: var(--border); color: var(--ink); }
@@ -974,142 +650,149 @@ input[type=file] { display: none; }
    GLOSSARY PAGE
 ══════════════════════════════════════ */
 #page-glossary {
-  overflow-y: auto;
-  padding: 2rem 2rem 4rem;
-  background: var(--warm);
-  display: none;
-  flex-direction: column;
+  overflow-y: auto; padding: 2rem 2rem 4rem; background: var(--warm);
+  display: none; flex-direction: column;
 }
 #page-glossary.show { display: flex; flex: 1; }
 
 .glossary-toolbar {
-  max-width: 860px;
-  display: flex;
-  gap: 0.6rem;
-  margin-bottom: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
+  max-width: 860px; display: flex; gap: 0.6rem; margin-bottom: 1rem;
+  align-items: center; flex-wrap: wrap;
 }
 .glossary-toolbar input {
-  flex: 1;
-  min-width: 160px;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  padding: 0.5rem 0.8rem;
-  border-radius: var(--r);
-  outline: none;
+  flex: 1; min-width: 160px; background: var(--paper); border: 1px solid var(--border);
+  color: var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+  padding: 0.5rem 0.8rem; border-radius: var(--r); outline: none;
 }
 .glossary-toolbar input:focus { border-color: var(--gold2); }
 .tag-filter {
-  display: flex;
-  gap: 0.3rem;
-  flex-wrap: wrap;
-  max-width: 860px;
-  margin-bottom: 1rem;
+  display: flex; gap: 0.3rem; flex-wrap: wrap; max-width: 860px; margin-bottom: 1rem;
 }
 .tag-chip {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 3px;
-  border: 1px solid var(--border);
-  background: var(--paper);
-  color: var(--dust);
-  cursor: pointer;
-  transition: all 0.15s;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  padding: 0.2rem 0.6rem; border-radius: 3px; border: 1px solid var(--border);
+  background: var(--paper); color: var(--dust); cursor: pointer; transition: all 0.15s;
 }
 .tag-chip:hover { border-color: var(--gold2); color: var(--gold); }
 .tag-chip.active { background: var(--gold2); border-color: var(--gold2); color: var(--ink); }
 
 .glossary-table {
-  max-width: 860px;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: var(--r);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+  max-width: 860px; background: var(--paper); border: 1px solid var(--border);
+  border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow);
 }
 .glossary-table-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr 1fr 56px;
-  padding: 0.5rem 1rem;
-  background: var(--paper2);
-  border-bottom: 1px solid var(--border);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--dust);
-  gap: 0.5rem;
+  display: grid; grid-template-columns: 1fr 1fr 1.5fr 1fr 56px;
+  padding: 0.5rem 1rem; background: var(--paper2); border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--dust); gap: 0.5rem;
 }
 .glossary-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr 1fr 56px;
-  border-bottom: 1px solid var(--border2);
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.1s;
+  display: grid; grid-template-columns: 1fr 1fr 1.5fr 1fr 56px;
+  border-bottom: 1px solid var(--border2); align-items: center;
+  gap: 0.5rem; transition: background 0.1s;
 }
 .glossary-row:last-child { border-bottom: none; }
 .glossary-row:hover { background: var(--paper2); }
 .glossary-row:hover .g-cell-actions { opacity: 1; }
-.g-cell {
-  padding: 0.5rem 0.5rem 0.5rem 0;
-  font-size: 0.82rem;
-  color: var(--ink2);
-}
+.g-cell { padding: 0.5rem 0.5rem 0.5rem 0; font-size: 0.82rem; color: var(--ink2); }
 .g-cell:first-child { padding-left: 1rem; }
 .g-cell-en { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ink3); }
 .g-cell-zh { font-weight: 500; color: var(--gold); }
 .g-cell-note { font-size: 0.75rem; color: var(--dust); font-style: italic; }
 .g-cell-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-.g-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; padding: 0.1rem 0.35rem; background: var(--paper2); border: 1px solid var(--border); border-radius: 2px; color: var(--dust); }
+.g-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+  padding: 0.1rem 0.35rem; background: var(--paper2); border: 1px solid var(--border);
+  border-radius: 2px; color: var(--dust);
+}
 .g-cell-actions { opacity: 0; display: flex; gap: 0.3rem; padding-right: 0.5rem; transition: opacity 0.15s; }
 
-/* Inline edit */
+/* Conflict warning for duplicate English terms with overlapping tags */
+.glossary-row.conflict { background: #fef2f2; }
+.glossary-row.conflict:hover { background: #fee2e2; }
+.g-conflict-badge {
+  display: inline-flex; align-items: center; gap: 0.25rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.58rem;
+  padding: 0.1rem 0.4rem; border-radius: 3px;
+  background: #fecaca; color: var(--red); margin-left: 0.4rem;
+  cursor: help;
+}
+
+/* Conflict resolution panel */
+.conflict-panel {
+  max-width: 860px; margin-bottom: 1.5rem;
+}
+.conflict-panel-header {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin-bottom: 1rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.conflict-panel-title {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+  font-weight: 700; color: var(--red);
+}
+.conflict-panel-subtitle {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.68rem;
+  color: var(--dust);
+}
+.conflict-group {
+  background: var(--paper); border: 1px solid #fecaca;
+  border-radius: var(--r); margin-bottom: 1rem; overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.conflict-group-header {
+  padding: 0.6rem 1rem; background: #fef2f2;
+  border-bottom: 1px solid #fecaca;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.conflict-group-en {
+  font-family: 'Crimson Pro', serif; font-size: 1rem;
+  font-weight: 600; color: var(--ink);
+}
+.conflict-group-count {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.62rem;
+  color: var(--dust);
+}
+.conflict-group-rows { }
+.conflict-group-row {
+  display: grid; grid-template-columns: 1fr 1.5fr 1fr 80px;
+  padding: 0.55rem 1rem; border-bottom: 1px solid var(--border2);
+  align-items: center; gap: 0.5rem;
+}
+.conflict-group-row:last-child { border-bottom: none; }
+.conflict-group-row:hover { background: var(--paper2); }
+.conflict-group-row .g-cell-zh { font-weight: 500; color: var(--gold); font-size: 0.85rem; }
+.conflict-group-row .g-cell-note { font-size: 0.75rem; color: var(--dust); font-style: italic; }
+.conflict-group-row .g-cell-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.conflict-group-row .conflict-actions { display: flex; gap: 0.3rem; justify-content: flex-end; }
+.conflict-group-row .conflict-actions button {
+  font-family: 'JetBrains Mono', monospace; font-size: 0.6rem;
+  padding: 0.2rem 0.5rem; border-radius: 3px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--paper); color: var(--dust);
+  transition: all 0.15s;
+}
+.conflict-group-row .conflict-actions button:hover { border-color: var(--gold2); color: var(--gold); }
+.conflict-group-row .conflict-actions button.danger { color: var(--red); }
+.conflict-group-row .conflict-actions button.danger:hover { border-color: #fecaca; background: #fef2f2; }
+
 .g-edit-input {
-  width: 100%;
-  background: var(--warm);
-  border: 1px solid var(--gold2);
-  color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  padding: 0.3rem 0.5rem;
-  border-radius: 3px;
-  outline: none;
+  width: 100%; background: var(--warm); border: 1px solid var(--gold2);
+  color: var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+  padding: 0.3rem 0.5rem; border-radius: 3px; outline: none;
 }
 
 .glossary-empty {
-  padding: 2rem;
-  text-align: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--dust);
+  padding: 2rem; text-align: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--dust);
 }
 
-/* Import textarea */
-.import-area {
-  max-width: 860px;
-  margin-top: 1rem;
-  display: none;
-}
+.import-area { max-width: 860px; margin-top: 1rem; display: none; }
 .import-area.show { display: block; }
 .import-area textarea {
-  width: 100%;
-  height: 120px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  color: var(--ink);
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--r);
-  outline: none;
-  resize: vertical;
-  margin-bottom: 0.5rem;
+  width: 100%; height: 120px; font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; background: var(--paper); border: 1px solid var(--border);
+  color: var(--ink); padding: 0.6rem 0.8rem; border-radius: var(--r);
+  outline: none; resize: vertical; margin-bottom: 0.5rem;
 }
 .import-area textarea:focus { border-color: var(--gold2); }
 </style>
@@ -1128,14 +811,12 @@ input[type=file] { display: none; }
   </div>
 
   <div class="content">
-
-    <!-- ── HOME ── -->
+    <!-- HOME -->
     <div id="page-home">
       <div class="home-hero">
         <h1>汉化工作台</h1>
         <p>// 多 AI 协作翻译 · 逐段审稿 · 术语管理</p>
       </div>
-
       <div class="home-actions" style="grid-template-columns:1fr;max-width:320px">
         <div class="action-card" onclick="openModal('modal-new-project')">
           <div class="action-card-icon">📂</div>
@@ -1143,16 +824,13 @@ input[type=file] { display: none; }
           <p>上传 CSV，自动识别翻译或校对模式，支持手动切换</p>
         </div>
       </div>
-
       <div class="home-section">
         <div class="home-section-title">最近项目</div>
-        <div id="project-list">
-          <p style="color:var(--dust);font-size:0.82rem;padding:1rem 0;">暂无项目</p>
-        </div>
+        <div id="project-list"><p style="color:var(--dust);font-size:0.82rem;padding:1rem 0;">暂无项目</p></div>
       </div>
     </div>
 
-    <!-- ── SETTINGS ── -->
+    <!-- SETTINGS -->
     <div id="page-settings">
       <div class="settings-section">
         <h3>API 密钥</h3>
@@ -1186,7 +864,7 @@ input[type=file] { display: none; }
       <button class="btn btn-primary" onclick="saveSettings()">保存设置</button>
     </div>
 
-    <!-- ── WORKSPACE ── -->
+    <!-- WORKSPACE -->
     <div id="page-workspace">
       <div class="ws-sidebar">
         <div class="ws-sidebar-header">
@@ -1203,6 +881,13 @@ input[type=file] { display: none; }
       </div>
 
       <div class="ws-main">
+        <!-- Project tags bar -->
+        <div class="ws-project-tags" id="ws-project-tags">
+          <span class="ws-project-tags-label">标签</span>
+          <span id="project-tags-container"></span>
+          <button class="add-tag-btn" onclick="addProjectTag()">+ 标签</button>
+        </div>
+
         <div class="ws-original">
           <div class="ws-original-label">原文</div>
           <div class="ws-original-text" id="ws-original-text">—</div>
@@ -1220,7 +905,6 @@ input[type=file] { display: none; }
         </div>
 
         <div class="ws-columns">
-          <!-- Claude -->
           <div class="ai-col" id="col-claude">
             <div class="ai-col-header" id="hdr-claude">
               <div class="ai-dot" style="background:var(--claude)"></div>
@@ -1236,7 +920,6 @@ input[type=file] { display: none; }
               <button class="ai-send" onclick="sendMsg('claude')" id="send-claude">↑</button>
             </div>
           </div>
-          <!-- GPT -->
           <div class="ai-col" id="col-gpt">
             <div class="ai-col-header" id="hdr-gpt">
               <div class="ai-dot" style="background:var(--gpt)"></div>
@@ -1252,7 +935,6 @@ input[type=file] { display: none; }
               <button class="ai-send" onclick="sendMsg('gpt')" id="send-gpt">↑</button>
             </div>
           </div>
-          <!-- Gemini -->
           <div class="ai-col" id="col-gemini">
             <div class="ai-col-header" id="hdr-gemini">
               <div class="ai-dot" style="background:var(--gemini)"></div>
@@ -1292,7 +974,7 @@ input[type=file] { display: none; }
       </div>
     </div>
 
-<!-- ── HISTORY ── -->
+    <!-- HISTORY -->
     <div id="page-history">
       <div class="page-header" style="max-width:860px">
         <div>
@@ -1307,20 +989,13 @@ input[type=file] { display: none; }
       </div>
       <div class="history-table" id="history-table">
         <div class="history-table-header">
-          <span>文件名</span>
-          <span>类型</span>
-          <span>创建时间</span>
-          <span>进度</span>
-          <span>完成率</span>
-          <span></span>
+          <span>文件名</span><span>类型</span><span>创建时间</span><span>进度</span><span>完成率</span><span></span>
         </div>
-        <div id="history-rows">
-          <div class="glossary-empty">暂无项目</div>
-        </div>
+        <div id="history-rows"><div class="glossary-empty">暂无项目</div></div>
       </div>
     </div>
 
-    <!-- ── GLOSSARY ── -->
+    <!-- GLOSSARY -->
     <div id="page-glossary">
       <div class="page-header" style="max-width:860px">
         <div>
@@ -1328,18 +1003,16 @@ input[type=file] { display: none; }
           <div class="page-subtitle">// 全局翻译规范</div>
         </div>
         <div class="page-actions">
+          <button class="btn btn-danger" id="btn-show-conflicts" onclick="showConflictPanel()" style="display:none">⚠ 查看冲突</button>
           <button class="btn btn-ghost" onclick="toggleImport()">批量导入</button>
           <button class="btn btn-ghost" onclick="exportGlossaryMd()">导出 .md</button>
           <button class="btn btn-primary" onclick="openModal('modal-add-glossary')">+ 添加术语</button>
         </div>
       </div>
-
       <div class="glossary-toolbar">
         <input type="text" id="glossary-search" placeholder="搜索英文或中文…" oninput="renderGlossaryPage()" />
       </div>
-
       <div class="tag-filter" id="tag-filter"></div>
-
       <div class="import-area" id="import-area">
         <p style="font-family:JetBrains Mono,monospace;font-size:0.72rem;color:var(--dust);margin-bottom:0.5rem">
           每行格式：<code>英文, 中文, 备注（可选）, 标签1|标签2（可选）</code>
@@ -1350,21 +1023,27 @@ input[type=file] { display: none; }
           <button class="btn btn-ghost" onclick="toggleImport()">取消</button>
         </div>
       </div>
+      <!-- Conflict resolution panel -->
+      <div class="conflict-panel" id="conflict-panel" style="display:none">
+        <div class="conflict-panel-header">
+          <span class="conflict-panel-title">⚠ 术语冲突</span>
+          <span class="conflict-panel-subtitle" id="conflict-count"></span>
+          <button class="btn btn-ghost" style="margin-left:auto;font-size:0.65rem;padding:0.25rem 0.6rem" onclick="hideConflictPanel()">返回术语表</button>
+        </div>
+        <div id="conflict-groups"></div>
+      </div>
 
-      <div class="glossary-table">
+      <div class="glossary-table" id="glossary-main-table">
         <div class="glossary-table-header">
           <span>英文</span><span>中文</span><span>备注</span><span>标签</span><span></span>
         </div>
-        <div id="glossary-table-body">
-          <div class="glossary-empty">暂无术语</div>
-        </div>
+        <div id="glossary-table-body"><div class="glossary-empty">暂无术语</div></div>
       </div>
     </div>
+  </div>
+</div>
 
-  </div><!-- /content -->
-</div><!-- /app -->
-<!-- ── MODALS ── -->
-<!-- New Project (unified) -->
+<!-- MODALS -->
 <div class="modal-overlay" id="modal-new-project">
   <div class="modal">
     <h2>新建项目</h2>
@@ -1386,6 +1065,10 @@ input[type=file] { display: none; }
         </select>
       </div>
     </div>
+    <div class="form-field" id="project-tags-row" style="display:none">
+      <label class="form-label">项目标签（用于匹配术语表，逗号分隔）</label>
+      <input type="text" id="new-project-tags" placeholder="如：Neel Nanda, 理性主义, On Slack" />
+    </div>
     <div class="modal-actions">
       <button class="btn btn-ghost" onclick="closeModal('modal-new-project')">取消</button>
       <button class="btn btn-primary" id="btn-start-project" onclick="startProject()" disabled>开始</button>
@@ -1393,7 +1076,6 @@ input[type=file] { display: none; }
   </div>
 </div>
 
-<!-- Add Glossary -->
 <div class="modal-overlay" id="modal-add-glossary">
   <div class="modal">
     <h2>添加术语</h2>
@@ -1410,7 +1092,7 @@ input[type=file] { display: none; }
       <input type="text" id="g-note" placeholder="e.g. 不用「松弛」" />
     </div>
     <div class="form-field">
-      <label class="form-label">标签（逗号分隔，可选）</label>
+      <label class="form-label">标签（逗号分隔，留空则为 default）</label>
       <input type="text" id="g-tags" placeholder="e.g. On Slack, 理性主义" />
     </div>
     <div class="modal-actions">
@@ -1420,8 +1102,6 @@ input[type=file] { display: none; }
   </div>
 </div>
 
-<!-- Loading overlay removed: progress shown inline in AI col headers -->
-
 <div class="toast" id="toast"></div>
 
 <script>
@@ -1429,11 +1109,69 @@ input[type=file] { display: none; }
 // STATE
 // ══════════════════════════════════════
 let state = {
-  project: null,   // current project object
+  project: null,
   glossary: [],
   settings: {},
   currentIdx: 0,
 };
+
+// ══════════════════════════════════════
+// POST-PROCESSING: 自动修正 AI 译文格式
+// ══════════════════════════════════════
+function postProcessTranslation(text) {
+  if (!text) return text;
+  const prot = [];
+  let p = text;
+  // 保护 Markdown 链接
+  p = p.replace(/\[([^\]]*)\]\(([^)]+)\)/g, (m) => { prot.push(m); return `\x00P${prot.length-1}\x00`; });
+  // 保护行内代码
+  p = p.replace(/`[^`]+`/g, (m) => { prot.push(m); return `\x00P${prot.length-1}\x00`; });
+  // 保护代码块
+  p = p.replace(/```[\s\S]*?```/g, (m) => { prot.push(m); return `\x00P${prot.length-1}\x00`; });
+  // 保护 URL
+  p = p.replace(/https?:\/\/[^\s,，。；：）\]）>]+/g, (m) => { prot.push(m); return `\x00P${prot.length-1}\x00`; });
+
+  // A. 全角链接括号→半角
+  p = p.replace(/\[([^\]]*)\]（([^）]+)）/g, '[$1]($2)');
+  p = p.replace(/［([^］]*)］\(([^)]+)\)/g, '[$1]($2)');
+  p = p.replace(/［([^］]*)］（([^）]+)）/g, '[$1]($2)');
+
+  // B. 半角标点→全角（中文语境）
+  p = p.replace(/([\u4e00-\u9fff\u3000-\u303f])\s*,\s*/g, '$1，');
+  p = p.replace(/,\s*([\u4e00-\u9fff\u3000-\u303f])/g, '，$1');
+  p = p.replace(/([\u4e00-\u9fff\u3000-\u303f])\./g, '$1。');
+  p = p.replace(/\.(?!\.)([\u4e00-\u9fff])/g, '。$1');
+  p = p.replace(/([\u4e00-\u9fff\u3000-\u303f]):/g, '$1：');
+  p = p.replace(/:([\u4e00-\u9fff])/g, '：$1');
+  p = p.replace(/([\u4e00-\u9fff\u3000-\u303f]);/g, '$1；');
+  p = p.replace(/;([\u4e00-\u9fff])/g, '；$1');
+  p = p.replace(/([\u4e00-\u9fff\u3000-\u303f])\?/g, '$1？');
+  p = p.replace(/\?([\u4e00-\u9fff])/g, '？$1');
+  p = p.replace(/([\u4e00-\u9fff\u3000-\u303f])!/g, '$1！');
+  p = p.replace(/!([\u4e00-\u9fff])/g, '！$1');
+
+  // C. 中英文/数字间加空格
+  p = p.replace(/([\u4e00-\u9fff])([a-zA-Z0-9])/g, '$1 $2');
+  p = p.replace(/([a-zA-Z0-9])([\u4e00-\u9fff])/g, '$1 $2');
+  // 修正 Markdown 粗体标记与中文之间不应有空格
+  p = p.replace(/([\u4e00-\u9fff]) \*\*/g, '$1**');
+  p = p.replace(/\*\* ([\u4e00-\u9fff])/g, '**$1');
+
+  // D. 中文斜体→粗体
+  p = p.replace(/(?<!\*)\*([^\*]+)\*(?!\*)/g, (match, inner) => {
+    const cn = inner.match(/[\u4e00-\u9fff]/g);
+    if (cn && cn.length > inner.length * 0.5) return `**${inner}**`;
+    return match;
+  });
+
+  // 恢复保护区
+  for (let i = prot.length - 1; i >= 0; i--) {
+    p = p.replace(`\x00P${i}\x00`, prot[i]);
+  }
+  // 最终再修一次全角链接括号
+  p = p.replace(/\[([^\]]*)\]（([^）]+)）/g, '[$1]($2)');
+  return p;
+}
 
 // ══════════════════════════════════════
 // INIT
@@ -1464,12 +1202,8 @@ async function api(url, opts = {}) {
 // PAGE NAV
 // ══════════════════════════════════════
 function showPage(name) {
-  document.querySelectorAll('[id^=page-]').forEach(el => {
-    el.style.display = 'none';
-    el.classList.remove('show');
-  });
+  document.querySelectorAll('[id^=page-]').forEach(el => { el.style.display = 'none'; el.classList.remove('show'); });
   document.querySelectorAll('.topbar-nav button').forEach(b => b.classList.remove('active'));
-
   const pageMap = {
     workspace: { display: '' },
     settings:  { display: 'block' },
@@ -1479,13 +1213,8 @@ function showPage(name) {
   };
   const cfg = pageMap[name] || pageMap.home;
   const pageEl = document.getElementById(`page-${name}`);
-  if (pageEl) {
-    pageEl.style.display = cfg.display;
-    pageEl.classList.add('show');
-  } else {
-    document.getElementById('page-home').style.display = '';
-    name = 'home';
-  }
+  if (pageEl) { pageEl.style.display = cfg.display; pageEl.classList.add('show'); }
+  else { document.getElementById('page-home').style.display = ''; name = 'home'; }
   const navBtn = document.getElementById(`nav-${name}`);
   if (navBtn) navBtn.classList.add('active');
   if (cfg.onshow) cfg.onshow();
@@ -1537,8 +1266,7 @@ async function loadProjectList() {
 }
 
 async function openProject(pid) {
-  const project = await api(`/api/projects/${pid}`);
-  state.project = project;
+  state.project = await api(`/api/projects/${pid}`);
   enterWorkspace();
 }
 
@@ -1554,13 +1282,10 @@ async function deleteProject(e, pid) {
 // FILE UPLOADS
 // ══════════════════════════════════════
 let csvFiles = {};
-
 function setupFileUploads() {
   const zone = document.getElementById('uz-project');
   const input = document.getElementById('fi-project');
-  input.addEventListener('change', e => {
-    if (e.target.files[0]) handleProjectFile(e.target.files[0]);
-  });
+  input.addEventListener('change', e => { if (e.target.files[0]) handleProjectFile(e.target.files[0]); });
   zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
   zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
   zone.addEventListener('drop', e => {
@@ -1572,7 +1297,6 @@ function setupFileUploads() {
 async function handleProjectFile(file) {
   csvFiles['project'] = file;
   document.getElementById('fn-project').textContent = file.name;
-  // Auto-detect mode
   const text = await file.text();
   const entries = parseCSV(text);
   const hasTranslation = entries.some(e => e.existing && e.existing.trim());
@@ -1583,6 +1307,10 @@ async function handleProjectFile(file) {
   document.getElementById('mode-detect-label').textContent = label;
   document.getElementById('mode-select').value = detected;
   document.getElementById('mode-detect-row').style.display = '';
+  document.getElementById('project-tags-row').style.display = '';
+  // Auto-suggest tags from filename
+  const fname = file.name.replace(/\.csv$/i, '').replace(/\.md$/i, '');
+  document.getElementById('new-project-tags').value = fname;
   document.getElementById('btn-start-project').disabled = false;
 }
 
@@ -1596,16 +1324,8 @@ function parseCSV(text) {
     const key = cols[0]?.trim() || '';
     const col1 = cols[1]?.trim() || '';
     const col2 = cols[2]?.trim() || '';
-    // Detect column layout:
-    // 3-col proofread: key, english_original, chinese_translation
-    // 2-col translate: key, english_original
-    // Heuristic: if col2 exists and col1 looks English (mostly ASCII), treat as proofread
     const isProofread = col2 && col2.length > 0;
-    return {
-      key,
-      original: col1,
-      existing: isProofread ? col2 : '',
-    };
+    return { key, original: col1, existing: isProofread ? col2 : '' };
   }).filter(e => e.original);
 }
 
@@ -1622,7 +1342,7 @@ function parseCSVLine(line) {
 }
 
 // ══════════════════════════════════════
-// NEW PROJECT FLOWS
+// NEW PROJECT
 // ══════════════════════════════════════
 async function startProject() {
   const file = csvFiles['project'];
@@ -1632,29 +1352,15 @@ async function startProject() {
   if (!entries.length) { toast('CSV 解析失败，请检查格式'); return; }
 
   const mode = document.getElementById('mode-select').value;
+  const tagsRaw = document.getElementById('new-project-tags').value.trim();
+  const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
   closeModal('modal-new-project');
 
-  const pid = await createProject(entries, mode, file.name);
-  state.project = await api(`/api/projects/${pid}`);
-
-  // Enter workspace immediately, translate in background
+  const res = await api('/api/projects', { method: 'POST', body: { entries, mode, filename: file.name, tags } });
+  state.project = await api(`/api/projects/${res.id}`);
   enterWorkspace();
-
-  // Seed proofread finals synchronously (fast, no AI calls)
-  if (entries.some(e => e.existing)) {
-    await seedProofreadFinals();
-  }
-
-  // Kick off background AI translation (non-blocking)
+  if (entries.some(e => e.existing)) await seedProofreadFinals();
   bulkTranslateBackground();
-}
-
-async function createProject(entries, mode, filename) {
-  const res = await api('/api/projects', {
-    method: 'POST',
-    body: { entries, mode, filename },
-  });
-  return res.id;
 }
 
 async function seedProofreadFinals() {
@@ -1663,10 +1369,7 @@ async function seedProofreadFinals() {
     const seg = project.segments[i];
     const entry = project.entries[i];
     if (!entry.existing || seg.final) continue;
-    await api(`/api/projects/${project.id}/segment/${i}`, {
-      method: 'PATCH',
-      body: { final: entry.existing },
-    });
+    await api(`/api/projects/${project.id}/segment/${i}`, { method: 'PATCH', body: { final: entry.existing } });
     state.project.segments[i].final = entry.existing;
     updateSidebarItem(i);
   }
@@ -1675,10 +1378,8 @@ async function seedProofreadFinals() {
 }
 
 // ══════════════════════════════════════
-// BULK TRANSLATE — batched background
+// BULK TRANSLATE — with improved prompts + post-processing
 // ══════════════════════════════════════
-
-// Batch size: max segments per API call
 const BATCH_SIZE = 25;
 
 function makeBatches(entries) {
@@ -1693,91 +1394,107 @@ function setAIProgress(ai, batch, total, done) {
   const bar = document.getElementById(`prog-bar-${ai}`);
   const label = document.getElementById(`prog-label-${ai}`);
   if (!bar || !label) return;
-  if (done) {
-    bar.style.width = '100%';
-    setTimeout(() => { bar.style.width = '0%'; label.textContent = ''; }, 800);
-  } else {
-    bar.style.width = `${Math.round((batch / total) * 100)}%`;
-    label.textContent = `${batch}/${total} 批`;
+  if (done) { bar.style.width = '100%'; setTimeout(() => { bar.style.width = '0%'; label.textContent = ''; }, 800); }
+  else { bar.style.width = `${Math.round((batch / total) * 100)}%`; label.textContent = `${batch}/${total} 批`; }
+}
+
+// ★ 改进：构建带格式要求的批量翻译 prompt
+function buildBulkPrompt(batchText) {
+  return `请将以下每个编号段落翻译成中文。严格保持 [数字] 编号前缀，每段之间空一行，不要有其他说明文字。
+
+【格式要求——每段译文必须遵守】
+1. Markdown 链接保持半角括号：[译文](url)，绝不用全角括号
+2. 中文与英文/数字之间加一个半角空格：如「使用 Anki」而非「使用Anki」
+3. 标点全部使用中文全角：，。；：？！——……
+4. 人名、软件名、论文名保留英文不翻译
+5. 专有名词用「」，书名用《》，隐喻用 ""
+6. 英文原文中的 *斜体* 译成中文时改用 **粗体**
+7. 保持作者原有语气，不要过度学术化
+
+${batchText}`;
+}
+
+// ★ 改进：构建带术语表的 system prompt
+function buildBulkSystemPrompt() {
+  let prompt = state.settings.systemPrompt || '';
+
+  // 注入与项目标签匹配的术语表
+  const projectTags = state.project?.meta?.tags || [];
+  const matchedTerms = getTagFilteredGlossary(projectTags);
+
+  if (matchedTerms.length > 0) {
+    const termLines = matchedTerms.map(t =>
+      `- ${t.en} → ${t.zh}${t.note ? `（${t.note}）` : ''}`
+    ).join('\n');
+    prompt += `\n\n【术语表——请严格按以下译法翻译】\n${termLines}`;
   }
+  return prompt;
+}
+
+// 根据项目标签筛选术语：匹配 default 标签 + 与项目标签重合的术语
+function getTagFilteredGlossary(projectTags) {
+  if (!state.glossary.length) return [];
+  return state.glossary.filter(t => {
+    const termTags = t.tags || ['default'];
+    // 包含 default 的术语始终匹配
+    if (termTags.includes('default')) return true;
+    // 否则检查是否与项目标签有交集
+    return projectTags.some(pt => termTags.includes(pt));
+  });
 }
 
 async function bulkTranslateBackground() {
   const project = state.project;
   const cache = project.aiCache || {};
-  const sysPrompt = buildSystemPrompt('translate');
+  const sysPrompt = buildBulkSystemPrompt();
   const batches = makeBatches(project.entries);
   const total = batches.length;
-
-  // Determine which AIs have keys
   const aiList = ['claude', 'gpt', 'gemini'].filter(ai => {
     const keyName = ai === 'gpt' ? 'openaiKey' : `${ai}Key`;
     return !!state.settings[keyName];
   });
-
   if (!aiList.length) return;
-
-  // Run each AI independently in parallel (but batches within each AI are serial)
   await Promise.allSettled(aiList.map(ai => runAIBatches(ai, batches, total, sysPrompt, cache)));
 }
 
 async function runAIBatches(ai, batches, total, sysPrompt, cache) {
   const project = state.project;
-  // Skip if fully cached
   if (cache[ai] && cache[ai].length >= project.entries.length) {
     await injectCacheIntoSegments(ai, cache[ai]);
     return;
   }
-
   for (let b = 0; b < batches.length; b++) {
     setAIProgress(ai, b + 1, total, false);
     const batch = batches[b];
     const batchText = batch.map(item => `[${item.idx}] ${item.original}`).join('\n\n');
-
     let raw = null;
-    try {
-      raw = await callAIBulkOnce(ai, batchText, sysPrompt);
-    } catch(e) {
-      console.warn(`${ai} batch ${b+1} failed:`, e.message);
-      continue;
-    }
-
+    try { raw = await callAIBulkOnce(ai, batchText, sysPrompt); }
+    catch(e) { console.warn(`${ai} batch ${b+1} failed:`, e.message); continue; }
     if (!raw) continue;
-
-    // Parse this batch's results
     const parsed = parseAIBulk(raw, project.entries.length);
-
-    // Inject parsed translations immediately into segments
     for (const item of batch) {
-      const trans = parsed[item.idx] || '';
+      let trans = parsed[item.idx] || '';
       if (!trans) continue;
+      // ★ 后处理自动修正格式
+      trans = postProcessTranslation(trans);
       const seg = state.project.segments[item.idx];
-      if (seg[ai].messages.length) continue; // already has messages
-
-      const patch = {
-        [ai]: { messages: [{ role: 'assistant', content: trans }], latest: trans }
-      };
-      await api(`/api/projects/${project.id}/segment/${item.idx}`, {
-        method: 'PATCH', body: patch,
-      });
-      state.project.segments[item.idx][ai] = { messages: [{ role: 'assistant', content: trans }], latest: trans };
-
-      // Live update current view if this segment is visible
-      if (item.idx === state.currentIdx) {
-        renderMessages(ai, [{ role: 'assistant', content: trans }]);
-      }
+      if (seg[ai].messages.length) continue;
+      const patch = { [ai]: { messages: [{ role: 'assistant', content: trans }], latest: trans } };
+      await api(`/api/projects/${project.id}/segment/${item.idx}`, { method: 'PATCH', body: patch });
+      state.project.segments[item.idx][ai] = patch[ai];
+      if (item.idx === state.currentIdx) renderMessages(ai, [{ role: 'assistant', content: trans }]);
       updateSidebarItem(item.idx);
     }
   }
-
   setAIProgress(ai, total, total, true);
 }
 
 async function injectCacheIntoSegments(ai, cacheArr) {
   const project = state.project;
   for (let i = 0; i < project.segments.length; i++) {
-    const trans = cacheArr[i] || '';
+    let trans = cacheArr[i] || '';
     if (!trans || project.segments[i][ai].messages.length) continue;
+    trans = postProcessTranslation(trans);
     const patch = { [ai]: { messages: [{ role: 'assistant', content: trans }], latest: trans } };
     await api(`/api/projects/${project.id}/segment/${i}`, { method: 'PATCH', body: patch });
     state.project.segments[i][ai] = patch[ai];
@@ -1787,7 +1504,7 @@ async function injectCacheIntoSegments(ai, cacheArr) {
 }
 
 async function callAIBulkOnce(ai, batchText, sysPrompt) {
-  const prompt = `请将以下每个编号段落翻译成中文。严格保持 [数字] 编号前缀，每段之间空一行，不要有其他说明文字。\n\n${batchText}`;
+  const prompt = buildBulkPrompt(batchText);
   if (ai === 'claude') {
     const res = await fetch('/api/ai/claude', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
@@ -1821,83 +1538,6 @@ async function callAIBulkOnce(ai, batchText, sysPrompt) {
   }
 }
 
-// ══════════════════════════════════════
-// AI BULK CALLS
-// ══════════════════════════════════════
-function setStatusDot(ai, status, note) {
-  // Overlay removed; status shown via inline progress bars
-  const bar = document.getElementById(`prog-bar-${ai}`);
-  if (bar) {
-    if (status === 'done') { bar.style.width = '0%'; }
-    else if (status === 'error') { bar.style.background = 'var(--red)'; }
-  }
-}
-
-async function bulkCallClaude(fullText, sysPrompt) {
-  setStatusDot('claude', 'loading', '翻译中…');
-  try {
-    const res = await fetch('/api/ai/claude', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-opus-4-5',
-        max_tokens: 8000,
-        system: sysPrompt,
-        messages: [{ role: 'user', content: bulkPrompt(fullText) }],
-      }),
-    });
-    const d = await res.json();
-    if (!res.ok) throw new Error(d.error?.message);
-    setStatusDot('claude', 'done', '完成');
-    return d.content?.[0]?.text || '';
-  } catch(e) { setStatusDot('claude', 'error', e.message?.slice(0,30)); return null; }
-}
-
-async function bulkCallGPT(fullText, sysPrompt) {
-  setStatusDot('gpt', 'loading', '翻译中…');
-  try {
-    const res = await fetch('/api/ai/openai', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'gpt-4o',
-        max_tokens: 8000,
-        messages: [
-          { role: 'system', content: sysPrompt },
-          { role: 'user', content: bulkPrompt(fullText) },
-        ],
-      }),
-    });
-    const d = await res.json();
-    if (!res.ok) throw new Error(d.error?.message);
-    setStatusDot('gpt', 'done', '完成');
-    return d.choices?.[0]?.message?.content || '';
-  } catch(e) { setStatusDot('gpt', 'error', e.message?.slice(0,30)); return null; }
-}
-
-async function bulkCallGemini(fullText, sysPrompt) {
-  setStatusDot('gemini', 'loading', '翻译中…');
-  try {
-    const res = await fetch('/api/ai/gemini', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: sysPrompt }] },
-        contents: [{ parts: [{ text: bulkPrompt(fullText) }] }],
-        generationConfig: { maxOutputTokens: 8000 },
-      }),
-    });
-    const d = await res.json();
-    if (!res.ok) throw new Error(d.error?.message);
-    setStatusDot('gemini', 'done', '完成');
-    return d.candidates?.[0]?.content?.parts?.[0]?.text || '';
-  } catch(e) { setStatusDot('gemini', 'error', e.message?.slice(0,30)); return null; }
-}
-
-function bulkPrompt(fullText) {
-  return `请将以下每个编号段落翻译成中文。严格保持 [数字] 编号前缀，每段之间空一行，不要有其他说明文字。\n\n${fullText}`;
-}
-
 function parseAIBulk(text, count) {
   const result = Array(count).fill('');
   const re = /\[(\d+)\]\s*([\s\S]*?)(?=\n\n\[\d+\]|$)/g;
@@ -1913,9 +1553,10 @@ function parseAIBulk(text, count) {
 // WORKSPACE
 // ══════════════════════════════════════
 function enterWorkspace() {
-  loadProjectList(); // refresh home list in background
+  loadProjectList();
   showPage('workspace');
   buildSidebar();
+  renderProjectTags();
   renderSegment(state.project.cursor || 0);
   updateExportBar();
 }
@@ -1924,7 +1565,6 @@ function buildSidebar() {
   const segs = state.project.segments;
   document.getElementById('ws-total').textContent = segs.length;
   updateDoneCount();
-
   const list = document.getElementById('ws-sidebar-list');
   list.innerHTML = segs.map((s, i) => {
     const orig = state.project.entries[i]?.original || '';
@@ -1936,86 +1576,163 @@ function buildSidebar() {
   }).join('');
 }
 
+// ── Project tags ──
+function renderProjectTags() {
+  const tags = state.project?.meta?.tags || [];
+  const container = document.getElementById('project-tags-container');
+  container.innerHTML = tags.map((tag, i) =>
+    `<span class="project-tag">${escHtml(tag)}<span class="tag-remove" onclick="removeProjectTag(${i})">✕</span></span>`
+  ).join('');
+}
+
+function addProjectTag() {
+  const tag = prompt('输入标签名：');
+  if (!tag || !tag.trim()) return;
+  const tags = state.project.meta.tags || [];
+  if (tags.includes(tag.trim())) return;
+  tags.push(tag.trim());
+  state.project.meta.tags = tags;
+  api(`/api/projects/${state.project.id}/meta`, { method: 'PATCH', body: { tags } });
+  renderProjectTags();
+}
+
+function removeProjectTag(idx) {
+  const tags = state.project.meta.tags || [];
+  tags.splice(idx, 1);
+  state.project.meta.tags = tags;
+  api(`/api/projects/${state.project.id}/meta`, { method: 'PATCH', body: { tags } });
+  renderProjectTags();
+}
+
 function renderSegment(idx) {
   state.currentIdx = idx;
   const seg = state.project.segments[idx];
   const entry = state.project.entries[idx];
 
-  // Sidebar active
   document.querySelectorAll('.seg-item').forEach(el => el.classList.remove('active'));
   const item = document.getElementById(`seg-item-${idx}`);
   if (item) { item.classList.add('active'); item.scrollIntoView({ block: 'nearest' }); }
 
-  // Nav
   document.getElementById('btn-prev').disabled = idx === 0;
   document.getElementById('btn-next').disabled = idx === state.project.segments.length - 1;
 
-  // Original with term highlights
   renderOriginal(entry.original);
-
-  // Glossary bar
   renderGlossaryBar(entry.original);
+  for (const ai of ['claude', 'gpt', 'gemini']) renderMessages(ai, seg[ai].messages);
 
-  // AI columns
-  for (const ai of ['claude', 'gpt', 'gemini']) {
-    renderMessages(ai, seg[ai].messages);
-  }
-
-  // Final
   const finalEl = document.getElementById('final-text');
   finalEl.value = seg.final || '';
-  // Track unsaved edits → orange dot, persisted in state
   finalEl.oninput = () => {
     const i = state.currentIdx;
     const cur = state.project.segments[i];
-    if (cur.final) return; // already confirmed, don't downgrade
-    const val = finalEl.value.trim();
-    cur._touched = !!val;
+    if (cur.final) return;
+    cur._touched = !!finalEl.value.trim();
     updateSidebarItem(i);
   };
 
-  // Save cursor
-  api(`/api/projects/${state.project.id}/cursor`, {
-    method: 'PATCH', body: { cursor: idx },
-  }).catch(() => {});
+  api(`/api/projects/${state.project.id}/cursor`, { method: 'PATCH', body: { cursor: idx } }).catch(() => {});
 }
 
+// ★ 改进：术语 tooltip 增强
 function renderOriginal(text) {
   const el = document.getElementById('ws-original-text');
-  // Highlight matched glossary terms
   const terms = matchGlossary(text);
   if (!terms.length) { el.textContent = text; return; }
   let html = escHtml(text);
-  terms.forEach(({ en, zh, note }) => {
+  terms.forEach(({ en, zh, note, tags }) => {
     const escaped = escHtml(en).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const title = note ? `${zh}（${note}）` : zh;
+    const tagStr = (tags || []).join(', ');
+    // data attributes carry term info for JS event handlers
+    const dataAttrs = `data-zh="${escHtml(zh)}" data-note="${escHtml(note || '')}" data-tags="${escHtml(tagStr)}"`;
     html = html.replace(
       new RegExp(`(?<![\\w])${escaped}(?![\\w])`, 'gi'),
-      `<span class="hl-term" title="${escHtml(title)}">$&</span>`
+      `<span class="hl-term" ${dataAttrs}>$&</span>`
     );
   });
   el.innerHTML = html;
+
+  // Bind hover (tooltip) and click (insert) events
+  el.querySelectorAll('.hl-term').forEach(span => {
+    span.addEventListener('mouseenter', showTermTooltip);
+    span.addEventListener('mouseleave', hideTermTooltip);
+    span.addEventListener('click', insertTermTranslation);
+  });
+}
+
+// ── Tooltip: fixed-position, shown via JS ──
+let _tooltipEl = null;
+function getTooltipEl() {
+  if (!_tooltipEl) {
+    _tooltipEl = document.createElement('div');
+    _tooltipEl.className = 'hl-term-tooltip';
+    document.body.appendChild(_tooltipEl);
+  }
+  return _tooltipEl;
+}
+
+function showTermTooltip(e) {
+  const span = e.currentTarget;
+  const zh = span.dataset.zh || '';
+  const note = span.dataset.note || '';
+  const tags = span.dataset.tags || '';
+  const tip = getTooltipEl();
+  tip.innerHTML = `<span class="tt-zh">${escHtml(zh)}</span>`
+    + (note ? `<br><span class="tt-note">${escHtml(note)}</span>` : '')
+    + (tags ? `<br><span class="tt-tags">${escHtml(tags)}</span>` : '')
+    + `<br><span style="color:var(--mist);font-size:0.58rem;margin-top:3px;display:inline-block">点击插入译文到定稿</span>`;
+  tip.style.display = 'block';
+  // Position below the term
+  const rect = span.getBoundingClientRect();
+  tip.style.left = Math.max(8, rect.left) + 'px';
+  tip.style.top = (rect.bottom + 6) + 'px';
+}
+
+function hideTermTooltip() {
+  const tip = getTooltipEl();
+  tip.style.display = 'none';
+}
+
+// ── Click term to insert Chinese translation into final-text ──
+function insertTermTranslation(e) {
+  const zh = e.currentTarget.dataset.zh;
+  if (!zh) return;
+  const finalEl = document.getElementById('final-text');
+  const start = finalEl.selectionStart;
+  const end = finalEl.selectionEnd;
+  const val = finalEl.value;
+  if (document.activeElement === finalEl && typeof start === 'number') {
+    // Insert at cursor position
+    finalEl.value = val.slice(0, start) + zh + val.slice(end);
+    finalEl.selectionStart = finalEl.selectionEnd = start + zh.length;
+  } else {
+    // No cursor in final-text, append at end
+    finalEl.value = val + zh;
+  }
+  finalEl.focus();
+  // Trigger touched state
+  const idx = state.currentIdx;
+  const cur = state.project.segments[idx];
+  if (!cur.final) { cur._touched = true; updateSidebarItem(idx); }
+  toast(`已插入「${zh}」`);
 }
 
 function renderGlossaryBar(text) {
   const terms = matchGlossary(text);
-  const bar = document.getElementById('ws-glossary-bar');
   const chips = document.getElementById('glossary-chips');
   if (!terms.length) {
     chips.innerHTML = '<span style="font-family:JetBrains Mono,monospace;font-size:0.68rem;color:var(--mist)">本段无匹配术语</span>';
   } else {
     chips.innerHTML = terms.map(t =>
-      `<span class="glossary-chip">
-        <span class="en">${escHtml(t.en)}</span>
-        <span class="arrow">→</span>
-        <span class="zh">${escHtml(t.zh)}</span>
-      </span>`
+      `<span class="glossary-chip"><span class="en">${escHtml(t.en)}</span><span class="arrow">→</span><span class="zh">${escHtml(t.zh)}</span></span>`
     ).join('');
   }
 }
 
+// ★ 改进：术语匹配考虑项目标签
 function matchGlossary(text) {
-  return state.glossary.filter(t =>
+  const projectTags = state.project?.meta?.tags || [];
+  const filtered = getTagFilteredGlossary(projectTags);
+  return filtered.filter(t =>
     t.en && new RegExp(`(?<![\\w])${escRegex(t.en)}(?![\\w])`, 'gi').test(text)
   );
 }
@@ -2038,65 +1755,45 @@ function renderMessages(ai, messages) {
 }
 
 // ══════════════════════════════════════
-// AI CHAT (per-segment)
+// AI CHAT (per-segment) — with post-processing
 // ══════════════════════════════════════
-function handleInputKey(e, ai) {
-  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(ai); }
-}
+function handleInputKey(e, ai) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(ai); } }
 
 async function sendMsg(ai) {
   const input = document.getElementById(`input-${ai}`);
   const text = input.value.trim();
   if (!text) return;
-
   const idx = state.currentIdx;
   const seg = state.project.segments[idx];
   const entry = state.project.entries[idx];
-
   input.value = '';
   document.getElementById(`send-${ai}`).disabled = true;
 
-  // Build messages
   const sysPrompt = buildSystemPrompt(state.project.meta.mode);
   const glossaryCtx = buildGlossaryContext(entry.original);
-
-  // If first user message, prepend original
   const msgs = [...seg[ai].messages];
-  if (!msgs.length || msgs[0].role === 'assistant') {
-    // First user message includes original for context
-  }
-  // Build user content: first message includes original + existing translation if any
   let userContent;
   if (msgs.length === 0) {
-    const existingCtx = entry.existing
-      ? `\n\n现有译文：\n${entry.existing}` : '';
+    const existingCtx = entry.existing ? `\n\n现有译文：\n${entry.existing}` : '';
     userContent = `原文：\n${entry.original}${existingCtx}${glossaryCtx}\n\n${text}`;
   } else if (msgs.length === 1 && msgs[0].role === 'assistant') {
-    // Only AI init message so far, first user turn — include original for context
     userContent = `原文：\n${entry.original}${glossaryCtx}\n\n${text}`;
   } else {
     userContent = text;
   }
-
   msgs.push({ role: 'user', content: userContent });
-
-  // Optimistically render
   seg[ai].messages = msgs;
   renderMessages(ai, msgs);
   appendLoadingMsg(ai);
 
   try {
-    const reply = await callAI(ai, sysPrompt, msgs);
+    let reply = await callAI(ai, sysPrompt, msgs);
+    // ★ 后处理
+    reply = postProcessTranslation(reply);
     msgs.push({ role: 'assistant', content: reply });
     seg[ai].messages = msgs;
     seg[ai].latest = reply;
-
-    // Persist
-    await api(`/api/projects/${state.project.id}/segment/${idx}`, {
-      method: 'PATCH',
-      body: { [ai]: { messages: msgs, latest: reply } },
-    });
-
+    await api(`/api/projects/${state.project.id}/segment/${idx}`, { method: 'PATCH', body: { [ai]: { messages: msgs, latest: reply } } });
     renderMessages(ai, msgs);
     updateSidebarItem(idx);
   } catch(e) {
@@ -2112,73 +1809,37 @@ function appendLoadingMsg(ai) {
   const el = document.getElementById(`msgs-${ai}`);
   const div = document.createElement('div');
   div.className = 'msg assistant loading';
-  div.innerHTML = `<div class="msg-role">${ai.toUpperCase()}</div>
-    <div class="msg-body"><div class="spinner"></div> 生成中…</div>`;
+  div.innerHTML = `<div class="msg-role">${ai.toUpperCase()}</div><div class="msg-body"><div class="spinner"></div> 生成中…</div>`;
   el.appendChild(div);
   el.scrollTop = el.scrollHeight;
 }
 
 async function callAI(ai, sysPrompt, messages) {
   if (ai === 'claude') {
-    const res = await fetch('/api/ai/claude', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-opus-4-5',
-        max_tokens: 2000,
-        system: sysPrompt,
-        messages,
-      }),
-    });
+    const res = await fetch('/api/ai/claude', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'claude-opus-4-5', max_tokens: 2000, system: sysPrompt, messages }) });
     const d = await res.json();
     if (!res.ok) throw new Error(d.error?.message || res.statusText);
     return d.content?.[0]?.text || '';
   }
-
   if (ai === 'gpt') {
-    const res = await fetch('/api/ai/openai', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'gpt-4o',
-        max_tokens: 2000,
-        messages: [{ role: 'system', content: sysPrompt }, ...messages],
-      }),
-    });
+    const res = await fetch('/api/ai/openai', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'gpt-4o', max_tokens: 2000, messages: [{ role: 'system', content: sysPrompt }, ...messages] }) });
     const d = await res.json();
     if (!res.ok) throw new Error(d.error?.message || res.statusText);
     return d.choices?.[0]?.message?.content || '';
   }
-
   if (ai === 'gemini') {
-    // Convert to Gemini format
-    const contents = messages.map(m => ({
-      role: m.role === 'user' ? 'user' : 'model',
-      parts: [{ text: m.content }],
-    }));
-    const res = await fetch('/api/ai/gemini', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system_instruction: { parts: [{ text: sysPrompt }] },
-        contents,
-        generationConfig: { maxOutputTokens: 2000 },
-      }),
-    });
+    const contents = messages.map(m => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] }));
+    const res = await fetch('/api/ai/gemini', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ system_instruction: { parts: [{ text: sysPrompt }] }, contents, generationConfig: { maxOutputTokens: 2000 } }) });
     const d = await res.json();
     if (!res.ok) throw new Error(d.error?.message || res.statusText);
     return d.candidates?.[0]?.content?.parts?.[0]?.text || '';
   }
 }
 
-// ══════════════════════════════════════
-// SYSTEM PROMPT BUILDER
-// ══════════════════════════════════════
-function buildSystemPrompt(mode) {
-  // Unified: always use translate prompt for bulk initial pass
-  // Per-segment chat can reference proofreadPrompt via manual instruction
-  return state.settings.systemPrompt || '';
-}
+function buildSystemPrompt(mode) { return state.settings.systemPrompt || ''; }
 
 function buildGlossaryContext(originalText) {
   const matched = matchGlossary(originalText);
@@ -2196,46 +1857,33 @@ function useTrans(ai) {
   const latest = seg[ai].latest || seg[ai].messages.filter(m => m.role === 'assistant').at(-1)?.content || '';
   if (!latest) { toast('该 AI 暂无译文'); return; }
   document.getElementById('final-text').value = latest;
-  if (!seg.final) {
-    seg._touched = true;
-    updateSidebarItem(idx);
-  }
+  if (!seg.final) { seg._touched = true; updateSidebarItem(idx); }
 }
 
 async function confirmSegment() {
   const val = document.getElementById('final-text').value.trim();
   if (!val) { toast('请先填写定稿'); return; }
-
   const idx = state.currentIdx;
-  await api(`/api/projects/${state.project.id}/segment/${idx}`, {
-    method: 'PATCH', body: { final: val },
-  });
-
+  await api(`/api/projects/${state.project.id}/segment/${idx}`, { method: 'PATCH', body: { final: val } });
   state.project.segments[idx].final = val;
   state.project.segments[idx]._touched = false;
   updateSidebarItem(idx);
   updateDoneCount();
   updateExportBar();
   toast('✓ 已保存');
-
   if (idx < state.project.segments.length - 1) navigate(1);
 }
 
-// ══════════════════════════════════════
-// NAVIGATION
-// ══════════════════════════════════════
 function navigate(dir) {
   const next = state.currentIdx + dir;
   if (next < 0 || next >= state.project.segments.length) return;
   renderSegment(next);
 }
 
-
 // ══════════════════════════════════════
-// HISTORY PAGE
+// HISTORY
 // ══════════════════════════════════════
 let allProjects = [];
-
 async function loadHistoryPage() {
   allProjects = await api('/api/projects');
   renderHistoryRows(allProjects);
@@ -2243,18 +1891,12 @@ async function loadHistoryPage() {
 
 function filterHistory() {
   const q = document.getElementById('history-search').value.trim().toLowerCase();
-  const filtered = q
-    ? allProjects.filter(p => p.filename.toLowerCase().includes(q))
-    : allProjects;
-  renderHistoryRows(filtered);
+  renderHistoryRows(q ? allProjects.filter(p => p.filename.toLowerCase().includes(q)) : allProjects);
 }
 
 function renderHistoryRows(projects) {
   const el = document.getElementById('history-rows');
-  if (!projects.length) {
-    el.innerHTML = '<div class="glossary-empty">暂无项目</div>';
-    return;
-  }
+  if (!projects.length) { el.innerHTML = '<div class="glossary-empty">暂无项目</div>'; return; }
   el.innerHTML = projects.map(p => {
     const pct = p.total ? Math.round((p.done / p.total) * 100) : 0;
     const date = p.createdAt ? new Date(p.createdAt).toLocaleDateString('zh-CN') : '—';
@@ -2262,13 +1904,9 @@ function renderHistoryRows(projects) {
     <div class="history-row" onclick="openProject('${p.id}')">
       <div>
         <div class="history-filename">${escHtml(p.filename)}</div>
-        <div class="history-progress-bar">
-          <div class="history-progress-fill" style="width:${pct}%"></div>
-        </div>
+        <div class="history-progress-bar"><div class="history-progress-fill" style="width:${pct}%"></div></div>
       </div>
-      <div class="history-cell">
-        <span class="project-mode-badge ${p.mode}" style="font-size:0.6rem">${p.mode === 'proofread' ? '含译文' : '翻译'}</span>
-      </div>
+      <div class="history-cell"><span class="project-mode-badge ${p.mode}" style="font-size:0.6rem">${p.mode === 'proofread' ? '含译文' : '翻译'}</span></div>
       <div class="history-cell">${date}</div>
       <div class="history-cell">${p.done} / ${p.total}</div>
       <div class="history-cell">${pct}%</div>
@@ -2288,7 +1926,7 @@ async function deleteProjectFromHistory(pid) {
 }
 
 // ══════════════════════════════════════
-// GLOSSARY
+// GLOSSARY — with tag system + edit
 // ══════════════════════════════════════
 let activeTagFilter = null;
 
@@ -2304,50 +1942,32 @@ async function addGlossaryEntry() {
   if (!en || !zh) { toast('请填写英文和中文'); return; }
   const note = document.getElementById('g-note').value.trim();
   const tagsRaw = document.getElementById('g-tags').value.trim();
-  const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
+  // ★ 改进：留空则默认 default 标签
+  const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : ['default'];
 
-  const entry = await api('/api/glossary/entry', {
-    method: 'POST', body: { en, zh, note, tags },
-  });
+  const entry = await api('/api/glossary/entry', { method: 'POST', body: { en, zh, note, tags } });
   state.glossary.push(entry);
   ['g-en','g-zh','g-note','g-tags'].forEach(id => document.getElementById(id).value = '');
   closeModal('modal-add-glossary');
-
-  // Refresh workspace glossary bar if open
   if (state.project) {
     const e2 = state.project.entries[state.currentIdx];
     if (e2) { renderOriginal(e2.original); renderGlossaryBar(e2.original); }
   }
-
-  // Refresh glossary page if visible
   renderGlossaryPage();
   toast('术语已添加');
 }
 
-// ── Glossary page rendering ──
 function renderGlossaryPage() {
   const q = (document.getElementById('glossary-search')?.value || '').toLowerCase();
   let items = state.glossary;
+  if (activeTagFilter) items = items.filter(t => (t.tags || []).includes(activeTagFilter));
+  if (q) items = items.filter(t => t.en.toLowerCase().includes(q) || t.zh.toLowerCase().includes(q) || (t.note || '').toLowerCase().includes(q));
 
-  // Tag filter
-  if (activeTagFilter) {
-    items = items.filter(t => (t.tags || []).includes(activeTagFilter));
-  }
-  // Search filter
-  if (q) {
-    items = items.filter(t =>
-      t.en.toLowerCase().includes(q) || t.zh.toLowerCase().includes(q) ||
-      (t.note || '').toLowerCase().includes(q)
-    );
-  }
-
-  // Render tag chips
   const allTags = [...new Set(state.glossary.flatMap(t => t.tags || []))].sort();
   const tagFilter = document.getElementById('tag-filter');
   if (tagFilter) {
     tagFilter.innerHTML = allTags.map(tag =>
-      `<span class="tag-chip ${activeTagFilter === tag ? 'active' : ''}"
-        onclick="setTagFilter('${escHtml(tag)}')">${escHtml(tag)}</span>`
+      `<span class="tag-chip ${activeTagFilter === tag ? 'active' : ''}" onclick="setTagFilter('${escHtml(tag)}')">${escHtml(tag)}</span>`
     ).join('');
     if (allTags.length && activeTagFilter) {
       tagFilter.innerHTML += `<span class="tag-chip" onclick="setTagFilter(null)" style="color:var(--red)">✕ 清除</span>`;
@@ -2356,32 +1976,161 @@ function renderGlossaryPage() {
 
   const body = document.getElementById('glossary-table-body');
   if (!body) return;
-  if (!items.length) {
-    body.innerHTML = '<div class="glossary-empty">' + (q || activeTagFilter ? '无匹配术语' : '暂无术语') + '</div>';
-    return;
-  }
+  if (!items.length) { body.innerHTML = '<div class="glossary-empty">' + (q || activeTagFilter ? '无匹配术语' : '暂无术语') + '</div>'; return; }
 
-  body.innerHTML = items.map(t => `
-    <div class="glossary-row" id="grow-${t.id}">
-      <div class="g-cell g-cell-en" ondblclick="editGlossaryCell('${t.id}','en',this)">${escHtml(t.en)}</div>
+  // ★ 冲突检测：同一英文词有多条记录且标签有重叠
+  const conflictSet = detectGlossaryConflicts();
+
+  body.innerHTML = items.map(t => {
+    const isConflict = conflictSet.has(t.id);
+    const conflictBadge = isConflict ? `<span class="g-conflict-badge" title="同一英文词存在多条译法，且标签有重叠，可能造成混淆">⚠ 冲突</span>` : '';
+    return `
+    <div class="glossary-row ${isConflict ? 'conflict' : ''}" id="grow-${t.id}">
+      <div class="g-cell g-cell-en" ondblclick="editGlossaryCell('${t.id}','en',this)">${escHtml(t.en)}${conflictBadge}</div>
       <div class="g-cell g-cell-zh" ondblclick="editGlossaryCell('${t.id}','zh',this)">${escHtml(t.zh)}</div>
       <div class="g-cell g-cell-note" ondblclick="editGlossaryCell('${t.id}','note',this)">${escHtml(t.note || '—')}</div>
-      <div class="g-cell">
+      <div class="g-cell" ondblclick="editGlossaryTags('${t.id}',this)">
         <div class="g-cell-tags">${(t.tags || []).map(tag => `<span class="g-tag">${escHtml(tag)}</span>`).join('')}</div>
       </div>
       <div class="g-cell g-cell-actions">
         <button class="icon-btn danger" title="删除" onclick="deleteGlossaryEntry('${t.id}')">✕</button>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
+
+  // Update conflict button visibility
+  const conflictBtn = document.getElementById('btn-show-conflicts');
+  if (conflictBtn) {
+    const cCount = conflictSet.size;
+    conflictBtn.style.display = cCount > 0 ? '' : 'none';
+    conflictBtn.textContent = `⚠ 查看冲突 (${Math.floor(cCount / 2)}+组)`;
+  }
 }
 
-function setTagFilter(tag) {
-  activeTagFilter = tag;
+// ★ 检测术语冲突：同一英文词有多条不同译法，且标签有重叠
+function detectGlossaryConflicts() {
+  const conflictIds = new Set();
+  // 按英文词分组（不区分大小写）
+  const groups = {};
+  for (const t of state.glossary) {
+    const key = t.en.toLowerCase().trim();
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(t);
+  }
+  for (const key of Object.keys(groups)) {
+    const group = groups[key];
+    if (group.length < 2) continue;
+    // 检查组内是否有不同译法
+    const translations = new Set(group.map(t => t.zh));
+    if (translations.size < 2) continue; // 同一译法不算冲突
+    // 检查标签是否有重叠
+    for (let i = 0; i < group.length; i++) {
+      for (let j = i + 1; j < group.length; j++) {
+        const tagsA = new Set(group[i].tags || ['default']);
+        const tagsB = group[j].tags || ['default'];
+        const hasOverlap = tagsB.some(t => tagsA.has(t));
+        if (hasOverlap && group[i].zh !== group[j].zh) {
+          conflictIds.add(group[i].id);
+          conflictIds.add(group[j].id);
+        }
+      }
+    }
+  }
+  return conflictIds;
+}
+
+// ── Conflict panel: grouped by English term ──
+function showConflictPanel() {
+  const panel = document.getElementById('conflict-panel');
+  const mainTable = document.getElementById('glossary-main-table');
+  panel.style.display = 'block';
+  mainTable.style.display = 'none';
+  renderConflictGroups();
+}
+
+function hideConflictPanel() {
+  document.getElementById('conflict-panel').style.display = 'none';
+  document.getElementById('glossary-main-table').style.display = '';
+}
+
+function getConflictGroups() {
+  const groups = {};
+  for (const t of state.glossary) {
+    const key = t.en.toLowerCase().trim();
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(t);
+  }
+  // Only keep groups with 2+ entries, different translations, and overlapping tags
+  const result = {};
+  for (const [key, group] of Object.entries(groups)) {
+    if (group.length < 2) continue;
+    const translations = new Set(group.map(t => t.zh));
+    if (translations.size < 2) continue;
+    // Check tag overlap within group
+    let hasConflict = false;
+    for (let i = 0; i < group.length && !hasConflict; i++) {
+      for (let j = i + 1; j < group.length && !hasConflict; j++) {
+        const tagsA = new Set(group[i].tags || ['default']);
+        const tagsB = group[j].tags || ['default'];
+        if (tagsB.some(t => tagsA.has(t)) && group[i].zh !== group[j].zh) hasConflict = true;
+      }
+    }
+    if (hasConflict) result[key] = group;
+  }
+  return result;
+}
+
+function renderConflictGroups() {
+  const groups = getConflictGroups();
+  const keys = Object.keys(groups).sort();
+  const container = document.getElementById('conflict-groups');
+  const countEl = document.getElementById('conflict-count');
+  countEl.textContent = `${keys.length} 组冲突`;
+
+  if (!keys.length) {
+    container.innerHTML = '<div class="glossary-empty">无冲突术语</div>';
+    return;
+  }
+
+  container.innerHTML = keys.map(key => {
+    const group = groups[key];
+    const displayEn = group[0].en; // preserve original casing
+    return `
+    <div class="conflict-group">
+      <div class="conflict-group-header">
+        <span class="conflict-group-en">${escHtml(displayEn)}</span>
+        <span class="conflict-group-count">${group.length} 条译法</span>
+      </div>
+      <div class="conflict-group-rows">
+        ${group.map(t => `
+          <div class="conflict-group-row" id="crow-${t.id}">
+            <div class="g-cell-zh" ondblclick="editGlossaryCell('${t.id}','zh',this)">${escHtml(t.zh)}</div>
+            <div class="g-cell-note" ondblclick="editGlossaryCell('${t.id}','note',this)">${escHtml(t.note || '—')}</div>
+            <div>
+              <div class="g-cell-tags">${(t.tags || []).map(tag => `<span class="g-tag">${escHtml(tag)}</span>`).join('')}</div>
+            </div>
+            <div class="conflict-actions">
+              <button title="删除此条" class="danger" onclick="deleteConflictEntry('${t.id}')">删除</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function deleteConflictEntry(id) {
+  await api(`/api/glossary/entry/${id}`, { method: 'DELETE' });
+  state.glossary = state.glossary.filter(t => t.id !== id);
+  renderConflictGroups();
   renderGlossaryPage();
+  toast('术语已删除');
+  // If no more conflicts, auto-close panel
+  if (Object.keys(getConflictGroups()).length === 0) hideConflictPanel();
 }
 
-// Double-click inline edit
+function setTagFilter(tag) { activeTagFilter = tag; renderGlossaryPage(); }
+
 function editGlossaryCell(id, field, el) {
   const original = el.textContent === '—' ? '' : el.textContent;
   const input = document.createElement('input');
@@ -2398,13 +2147,43 @@ function editGlossaryCell(id, field, el) {
     const entry = state.glossary.find(t => t.id === id);
     if (!entry || entry[field] === val) return;
     entry[field] = val;
-    await api('/api/glossary', { method: 'POST', body: state.glossary });
+    // ★ 改进：使用 PUT 更新单条术语
+    await api(`/api/glossary/entry/${id}`, { method: 'PUT', body: { [field]: val } });
   }
-
   input.addEventListener('blur', save);
   input.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
     if (e.key === 'Escape') { el.textContent = original || '—'; }
+  });
+}
+
+// ★ 新增：双击编辑标签
+function editGlossaryTags(id, el) {
+  const entry = state.glossary.find(t => t.id === id);
+  if (!entry) return;
+  const original = (entry.tags || []).join(', ');
+  const input = document.createElement('input');
+  input.className = 'g-edit-input';
+  input.value = original;
+  input.placeholder = '逗号分隔，留空为 default';
+  el.innerHTML = '';
+  el.appendChild(input);
+  input.focus();
+  input.select();
+
+  async function save() {
+    const val = input.value.trim();
+    const newTags = val ? val.split(',').map(t => t.trim()).filter(Boolean) : ['default'];
+    entry.tags = newTags;
+    el.innerHTML = `<div class="g-cell-tags">${newTags.map(tag => `<span class="g-tag">${escHtml(tag)}</span>`).join('')}</div>`;
+    await api(`/api/glossary/entry/${id}`, { method: 'PUT', body: { tags: newTags } });
+  }
+  input.addEventListener('blur', save);
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+    if (e.key === 'Escape') {
+      el.innerHTML = `<div class="g-cell-tags">${(entry.tags || []).map(tag => `<span class="g-tag">${escHtml(tag)}</span>`).join('')}</div>`;
+    }
   });
 }
 
@@ -2415,7 +2194,6 @@ async function deleteGlossaryEntry(id) {
   toast('术语已删除');
 }
 
-// ── Bulk import ──
 function toggleImport() {
   const area = document.getElementById('import-area');
   area.classList.toggle('show');
@@ -2431,7 +2209,7 @@ async function importGlossary() {
     const parts = line.split(',').map(s => s.trim());
     if (parts.length < 2 || !parts[0] || !parts[1]) continue;
     const [en, zh, note = '', tagsRaw = ''] = parts;
-    const tags = tagsRaw ? tagsRaw.split('|').map(t => t.trim()).filter(Boolean) : [];
+    const tags = tagsRaw ? tagsRaw.split('|').map(t => t.trim()).filter(Boolean) : ['default'];
     const entry = await api('/api/glossary/entry', { method: 'POST', body: { en, zh, note, tags } });
     state.glossary.push(entry);
     added++;
@@ -2442,7 +2220,6 @@ async function importGlossary() {
   toast(`已导入 ${added} 条术语`);
 }
 
-// ── Export as Obsidian .md ──
 function exportGlossaryMd() {
   if (!state.glossary.length) { toast('术语表为空'); return; }
   const now = new Date();
@@ -2451,38 +2228,10 @@ function exportGlossaryMd() {
   const rows = state.glossary.map(t =>
     `| ${t.en} | ${t.zh} | ${t.note || ''} | ${(t.tags||[]).join(', ')} |`
   ).join('\n');
-
   const cards = state.glossary.map(t =>
     `${t.en} 的标准译法？\n?\n${t.zh}${t.note ? `（${t.note}）` : ''}`
   ).join('\n\n');
-
-  const md = `---
-id: "${id}"
-title: "翻译规范-术语表"
-source_type: translation
-tags:
-  - 翻译规范
-  - 术语表
-date: ${date}
-status: draft
-reviewable: true
----
-
-# 翻译规范-术语表
-
-## 术语对照
-
-| 英文 | 中文 | 备注 | 标签 |
-|---|---|---|---|
-${rows}
-
-## Cards
-
-#flashcards
-
-${cards}
-`;
-
+  const md = `---\nid: "${id}"\ntitle: "翻译规范-术语表"\nsource_type: translation\ntags:\n  - 翻译规范\n  - 术语表\ndate: ${date}\nstatus: draft\nreviewable: true\n---\n\n# 翻译规范-术语表\n\n## 术语对照\n\n| 英文 | 中文 | 备注 | 标签 |\n|---|---|---|---|\n${rows}\n\n## Cards\n\n#flashcards\n\n${cards}\n`;
   const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -2519,8 +2268,7 @@ function exportCSV() {
 
 function csvEsc(s) {
   s = s || '';
-  if (s.includes(',') || s.includes('"') || s.includes('\n'))
-    return '"' + s.replace(/"/g, '""') + '"';
+  if (s.includes(',') || s.includes('"') || s.includes('\n')) return '"' + s.replace(/"/g, '""') + '"';
   return s;
 }
 
@@ -2529,9 +2277,8 @@ function csvEsc(s) {
 // ══════════════════════════════════════
 function segStatusClass(seg, idx) {
   if (seg.final) return 'done';
-  if (seg._touched) return 'modified';   // user edited final-text but hasn't confirmed
+  if (seg._touched) return 'modified';
   if (seg.claude.latest || seg.gpt.latest || seg.gemini.latest) return 'partial';
-  // proofread: pre-filled existing translation counts as partial
   const entry = state.project?.entries[idx ?? 0];
   if (entry?.existing) return 'partial';
   return '';
@@ -2546,36 +2293,29 @@ function updateSidebarItem(idx) {
 
 function updateDoneCount() {
   if (!state.project) return;
-  const done = state.project.segments.filter(s => s.final).length;
-  document.getElementById('ws-done').textContent = done;
+  document.getElementById('ws-done').textContent = state.project.segments.filter(s => s.final).length;
 }
 
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-
-// Close modal on backdrop click
 document.querySelectorAll('.modal-overlay').forEach(el => {
   el.addEventListener('click', e => { if (e.target === el) el.classList.remove('show'); });
 });
 
 function toast(msg, dur = 2200) {
   const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
+  el.textContent = msg; el.classList.add('show');
   setTimeout(() => el.classList.remove('show'), dur);
 }
 
 function escHtml(s) {
-  return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ══════════════════════════════════════
 // RESIZE HANDLE
 // ══════════════════════════════════════
 function initResizeHandle() {
-  // ── Final area resize (bottom handle) ──
   const handle = document.getElementById('ws-resize-handle');
   const finalEl = document.getElementById('ws-final');
   if (handle && finalEl) {
@@ -2583,24 +2323,18 @@ function initResizeHandle() {
     handle.addEventListener('mousedown', e => {
       dragging = true; startY = e.clientY;
       startH = finalEl.getBoundingClientRect().height;
-      document.body.style.cursor = 'ns-resize';
-      document.body.style.userSelect = 'none';
+      document.body.style.cursor = 'ns-resize'; document.body.style.userSelect = 'none';
     });
     document.addEventListener('mousemove', e => {
       if (!dragging) return;
       const newH = Math.max(80, Math.min(window.innerHeight * 0.6, startH + (startY - e.clientY)));
-      finalEl.style.maxHeight = newH + 'px';
-      finalEl.style.minHeight = newH + 'px';
+      finalEl.style.maxHeight = newH + 'px'; finalEl.style.minHeight = newH + 'px';
     });
     document.addEventListener('mouseup', () => {
-      if (!dragging) return;
-      dragging = false;
-      document.body.style.cursor = '';
-      document.body.style.userSelect = '';
+      if (!dragging) return; dragging = false;
+      document.body.style.cursor = ''; document.body.style.userSelect = '';
     });
   }
-
-  // ── Original area resize (bottom handle on original box) ──
   const origHandle = document.getElementById('ws-original-handle');
   const origEl = document.querySelector('.ws-original');
   if (origHandle && origEl) {
@@ -2608,20 +2342,16 @@ function initResizeHandle() {
     origHandle.addEventListener('mousedown', e => {
       dragging = true; startY = e.clientY;
       startH = origEl.getBoundingClientRect().height;
-      document.body.style.cursor = 'ns-resize';
-      document.body.style.userSelect = 'none';
+      document.body.style.cursor = 'ns-resize'; document.body.style.userSelect = 'none';
     });
     document.addEventListener('mousemove', e => {
       if (!dragging) return;
       const newH = Math.max(52, Math.min(window.innerHeight * 0.4, startH + (e.clientY - startY)));
-      origEl.style.maxHeight = newH + 'px';
-      origEl.style.minHeight = newH + 'px';
+      origEl.style.maxHeight = newH + 'px'; origEl.style.minHeight = newH + 'px';
     });
     document.addEventListener('mouseup', () => {
-      if (!dragging) return;
-      dragging = false;
-      document.body.style.cursor = '';
-      document.body.style.userSelect = '';
+      if (!dragging) return; dragging = false;
+      document.body.style.cursor = ''; document.body.style.userSelect = '';
     });
   }
 }
