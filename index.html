@@ -301,15 +301,15 @@ input[type=file] { display: none; }
    SETTINGS PAGE
 ══════════════════════════════════════ */
 #page-settings {
-  flex: 1;
   overflow-y: auto;
   padding: 2rem 2rem 4rem;
   max-width: 720px;
   margin: 0 auto;
   width: 100%;
   display: none;
+  flex-direction: column;
 }
-#page-settings.show { display: block; }
+#page-settings.show { display: flex; flex: 1; }
 .settings-section {
   background: var(--paper);
   border: 1px solid var(--border);
@@ -449,8 +449,10 @@ input[type=file] { display: none; }
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  max-height: 160px;
+  min-height: 52px;
+  max-height: 40vh;
   overflow-y: auto;
+  position: relative;
 }
 .ws-original-label {
   font-family: 'JetBrains Mono', monospace;
@@ -838,6 +840,278 @@ input[type=file] { display: none; }
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--mist); border-radius: 2px; }
+
+/* ══════════════════════════════════════
+   HISTORY PAGE
+══════════════════════════════════════ */
+#page-history {
+  overflow-y: auto;
+  padding: 2rem 2rem 4rem;
+  background: var(--warm);
+  display: none;
+  flex-direction: column;
+}
+#page-history.show { display: flex; flex: 1; }
+
+.page-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 860px;
+}
+.page-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--ink);
+}
+.page-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--dust);
+}
+.page-actions { margin-left: auto; display: flex; gap: 0.5rem; }
+
+.history-search {
+  max-width: 860px;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.6rem;
+}
+.history-search input {
+  flex: 1;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--r);
+  outline: none;
+}
+.history-search input:focus { border-color: var(--gold2); }
+
+.history-table {
+  max-width: 860px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.history-table-header {
+  display: grid;
+  grid-template-columns: 2fr 80px 100px 80px 90px 60px;
+  padding: 0.5rem 1rem;
+  background: var(--paper2);
+  border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dust);
+  gap: 0.5rem;
+}
+.history-row {
+  display: grid;
+  grid-template-columns: 2fr 80px 100px 80px 90px 60px;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border2);
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.history-row:last-child { border-bottom: none; }
+.history-row:hover { background: var(--paper2); }
+.history-filename {
+  font-size: 0.84rem;
+  color: var(--ink2);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.history-cell {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--dust);
+  white-space: nowrap;
+}
+.history-progress-bar {
+  height: 3px;
+  background: var(--paper3);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 3px;
+}
+.history-progress-fill {
+  height: 100%;
+  background: var(--teal);
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+.history-actions {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: flex-end;
+}
+.icon-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--dust);
+  font-size: 0.8rem;
+  width: 26px; height: 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.icon-btn:hover { background: var(--paper2); border-color: var(--border); color: var(--ink); }
+.icon-btn.danger:hover { background: #fef2f2; border-color: #fecaca; color: var(--red); }
+
+/* ══════════════════════════════════════
+   GLOSSARY PAGE
+══════════════════════════════════════ */
+#page-glossary {
+  overflow-y: auto;
+  padding: 2rem 2rem 4rem;
+  background: var(--warm);
+  display: none;
+  flex-direction: column;
+}
+#page-glossary.show { display: flex; flex: 1; }
+
+.glossary-toolbar {
+  max-width: 860px;
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.glossary-toolbar input {
+  flex: 1;
+  min-width: 160px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--r);
+  outline: none;
+}
+.glossary-toolbar input:focus { border-color: var(--gold2); }
+.tag-filter {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  max-width: 860px;
+  margin-bottom: 1rem;
+}
+.tag-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--dust);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tag-chip:hover { border-color: var(--gold2); color: var(--gold); }
+.tag-chip.active { background: var(--gold2); border-color: var(--gold2); color: var(--ink); }
+
+.glossary-table {
+  max-width: 860px;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.glossary-table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr 1fr 56px;
+  padding: 0.5rem 1rem;
+  background: var(--paper2);
+  border-bottom: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dust);
+  gap: 0.5rem;
+}
+.glossary-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr 1fr 56px;
+  border-bottom: 1px solid var(--border2);
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.1s;
+}
+.glossary-row:last-child { border-bottom: none; }
+.glossary-row:hover { background: var(--paper2); }
+.glossary-row:hover .g-cell-actions { opacity: 1; }
+.g-cell {
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  font-size: 0.82rem;
+  color: var(--ink2);
+}
+.g-cell:first-child { padding-left: 1rem; }
+.g-cell-en { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--ink3); }
+.g-cell-zh { font-weight: 500; color: var(--gold); }
+.g-cell-note { font-size: 0.75rem; color: var(--dust); font-style: italic; }
+.g-cell-tags { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.g-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; padding: 0.1rem 0.35rem; background: var(--paper2); border: 1px solid var(--border); border-radius: 2px; color: var(--dust); }
+.g-cell-actions { opacity: 0; display: flex; gap: 0.3rem; padding-right: 0.5rem; transition: opacity 0.15s; }
+
+/* Inline edit */
+.g-edit-input {
+  width: 100%;
+  background: var(--warm);
+  border: 1px solid var(--gold2);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
+  outline: none;
+}
+
+.glossary-empty {
+  padding: 2rem;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--dust);
+}
+
+/* Import textarea */
+.import-area {
+  max-width: 860px;
+  margin-top: 1rem;
+  display: none;
+}
+.import-area.show { display: block; }
+.import-area textarea {
+  width: 100%;
+  height: 120px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--r);
+  outline: none;
+  resize: vertical;
+  margin-bottom: 0.5rem;
+}
+.import-area textarea:focus { border-color: var(--gold2); }
 </style>
 </head>
 <body>
@@ -847,6 +1121,8 @@ input[type=file] { display: none; }
     <div class="topbar-sep"></div>
     <div class="topbar-nav">
       <button onclick="showPage('home')" id="nav-home" class="active">首页</button>
+      <button onclick="showPage('history')" id="nav-history">历史</button>
+      <button onclick="showPage('glossary')" id="nav-glossary">术语表</button>
       <button onclick="showPage('settings')" id="nav-settings">设置</button>
     </div>
   </div>
@@ -935,6 +1211,7 @@ input[type=file] { display: none; }
             <button class="nav-btn" id="btn-next" onclick="navigate(1)" title="下一段">↓</button>
           </div>
         </div>
+        <div class="ws-resize-handle" id="ws-original-handle"></div>
 
         <div class="ws-glossary-bar" id="ws-glossary-bar">
           <span class="glossary-bar-label">术语</span>
@@ -1015,9 +1292,77 @@ input[type=file] { display: none; }
       </div>
     </div>
 
+<!-- ── HISTORY ── -->
+    <div id="page-history">
+      <div class="page-header" style="max-width:860px">
+        <div>
+          <div class="page-title">历史记录</div>
+          <div class="page-subtitle">// 所有翻译项目</div>
+        </div>
+        <div class="page-actions">
+          <input type="text" id="history-search" placeholder="搜索文件名…"
+            style="width:200px;font-family:JetBrains Mono,monospace;font-size:0.75rem;background:var(--paper);border:1px solid var(--border);color:var(--ink);padding:0.4rem 0.7rem;border-radius:var(--r);outline:none"
+            oninput="filterHistory()" />
+        </div>
+      </div>
+      <div class="history-table" id="history-table">
+        <div class="history-table-header">
+          <span>文件名</span>
+          <span>类型</span>
+          <span>创建时间</span>
+          <span>进度</span>
+          <span>完成率</span>
+          <span></span>
+        </div>
+        <div id="history-rows">
+          <div class="glossary-empty">暂无项目</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GLOSSARY ── -->
+    <div id="page-glossary">
+      <div class="page-header" style="max-width:860px">
+        <div>
+          <div class="page-title">术语表</div>
+          <div class="page-subtitle">// 全局翻译规范</div>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-ghost" onclick="toggleImport()">批量导入</button>
+          <button class="btn btn-ghost" onclick="exportGlossaryMd()">导出 .md</button>
+          <button class="btn btn-primary" onclick="openModal('modal-add-glossary')">+ 添加术语</button>
+        </div>
+      </div>
+
+      <div class="glossary-toolbar">
+        <input type="text" id="glossary-search" placeholder="搜索英文或中文…" oninput="renderGlossaryPage()" />
+      </div>
+
+      <div class="tag-filter" id="tag-filter"></div>
+
+      <div class="import-area" id="import-area">
+        <p style="font-family:JetBrains Mono,monospace;font-size:0.72rem;color:var(--dust);margin-bottom:0.5rem">
+          每行格式：<code>英文, 中文, 备注（可选）, 标签1|标签2（可选）</code>
+        </p>
+        <textarea id="import-text" placeholder="slack, 余裕, 不用「松弛」, On Slack|理性主义"></textarea>
+        <div style="display:flex;gap:0.5rem">
+          <button class="btn btn-primary" onclick="importGlossary()">导入</button>
+          <button class="btn btn-ghost" onclick="toggleImport()">取消</button>
+        </div>
+      </div>
+
+      <div class="glossary-table">
+        <div class="glossary-table-header">
+          <span>英文</span><span>中文</span><span>备注</span><span>标签</span><span></span>
+        </div>
+        <div id="glossary-table-body">
+          <div class="glossary-empty">暂无术语</div>
+        </div>
+      </div>
+    </div>
+
   </div><!-- /content -->
 </div><!-- /app -->
-
 <!-- ── MODALS ── -->
 <!-- New Project (unified) -->
 <div class="modal-overlay" id="modal-new-project">
@@ -1125,17 +1470,25 @@ function showPage(name) {
   });
   document.querySelectorAll('.topbar-nav button').forEach(b => b.classList.remove('active'));
 
-  if (name === 'workspace') {
-    document.getElementById('page-workspace').style.display = '';
-    document.getElementById('page-workspace').classList.add('show');
-  } else if (name === 'settings') {
-    document.getElementById('page-settings').style.display = 'block';
-    document.getElementById('page-settings').classList.add('show');
-    document.getElementById('nav-settings').classList.add('active');
+  const pageMap = {
+    workspace: { display: '' },
+    settings:  { display: 'block' },
+    history:   { display: 'block', onshow: loadHistoryPage },
+    glossary:  { display: 'block', onshow: renderGlossaryPage },
+    home:      { display: '' },
+  };
+  const cfg = pageMap[name] || pageMap.home;
+  const pageEl = document.getElementById(`page-${name}`);
+  if (pageEl) {
+    pageEl.style.display = cfg.display;
+    pageEl.classList.add('show');
   } else {
     document.getElementById('page-home').style.display = '';
-    document.getElementById('nav-home').classList.add('active');
+    name = 'home';
   }
+  const navBtn = document.getElementById(`nav-${name}`);
+  if (navBtn) navBtn.classList.add('active');
+  if (cfg.onshow) cfg.onshow();
 }
 
 // ══════════════════════════════════════
@@ -1877,11 +2230,69 @@ function navigate(dir) {
   renderSegment(next);
 }
 
+
+// ══════════════════════════════════════
+// HISTORY PAGE
+// ══════════════════════════════════════
+let allProjects = [];
+
+async function loadHistoryPage() {
+  allProjects = await api('/api/projects');
+  renderHistoryRows(allProjects);
+}
+
+function filterHistory() {
+  const q = document.getElementById('history-search').value.trim().toLowerCase();
+  const filtered = q
+    ? allProjects.filter(p => p.filename.toLowerCase().includes(q))
+    : allProjects;
+  renderHistoryRows(filtered);
+}
+
+function renderHistoryRows(projects) {
+  const el = document.getElementById('history-rows');
+  if (!projects.length) {
+    el.innerHTML = '<div class="glossary-empty">暂无项目</div>';
+    return;
+  }
+  el.innerHTML = projects.map(p => {
+    const pct = p.total ? Math.round((p.done / p.total) * 100) : 0;
+    const date = p.createdAt ? new Date(p.createdAt).toLocaleDateString('zh-CN') : '—';
+    return `
+    <div class="history-row" onclick="openProject('${p.id}')">
+      <div>
+        <div class="history-filename">${escHtml(p.filename)}</div>
+        <div class="history-progress-bar">
+          <div class="history-progress-fill" style="width:${pct}%"></div>
+        </div>
+      </div>
+      <div class="history-cell">
+        <span class="project-mode-badge ${p.mode}" style="font-size:0.6rem">${p.mode === 'proofread' ? '含译文' : '翻译'}</span>
+      </div>
+      <div class="history-cell">${date}</div>
+      <div class="history-cell">${p.done} / ${p.total}</div>
+      <div class="history-cell">${pct}%</div>
+      <div class="history-actions" onclick="event.stopPropagation()">
+        <button class="icon-btn danger" title="删除" onclick="deleteProjectFromHistory('${p.id}')">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function deleteProjectFromHistory(pid) {
+  if (!confirm('确定删除此项目？')) return;
+  await api(`/api/projects/${pid}`, { method: 'DELETE' });
+  await loadHistoryPage();
+  await loadProjectList();
+  toast('项目已删除');
+}
+
 // ══════════════════════════════════════
 // GLOSSARY
 // ══════════════════════════════════════
+let activeTagFilter = null;
+
 function openAddGlossaryFromBar() {
-  // Pre-fill with selected text if any
   const sel = window.getSelection()?.toString().trim();
   if (sel) document.getElementById('g-en').value = sel;
   openModal('modal-add-glossary');
@@ -1899,18 +2310,185 @@ async function addGlossaryEntry() {
     method: 'POST', body: { en, zh, note, tags },
   });
   state.glossary.push(entry);
-
-  // Clear fields
   ['g-en','g-zh','g-note','g-tags'].forEach(id => document.getElementById(id).value = '');
   closeModal('modal-add-glossary');
 
-  // Refresh glossary bar for current segment
-  const entry2 = state.project.entries[state.currentIdx];
-  if (entry2) {
-    renderOriginal(entry2.original);
-    renderGlossaryBar(entry2.original);
+  // Refresh workspace glossary bar if open
+  if (state.project) {
+    const e2 = state.project.entries[state.currentIdx];
+    if (e2) { renderOriginal(e2.original); renderGlossaryBar(e2.original); }
   }
+
+  // Refresh glossary page if visible
+  renderGlossaryPage();
   toast('术语已添加');
+}
+
+// ── Glossary page rendering ──
+function renderGlossaryPage() {
+  const q = (document.getElementById('glossary-search')?.value || '').toLowerCase();
+  let items = state.glossary;
+
+  // Tag filter
+  if (activeTagFilter) {
+    items = items.filter(t => (t.tags || []).includes(activeTagFilter));
+  }
+  // Search filter
+  if (q) {
+    items = items.filter(t =>
+      t.en.toLowerCase().includes(q) || t.zh.toLowerCase().includes(q) ||
+      (t.note || '').toLowerCase().includes(q)
+    );
+  }
+
+  // Render tag chips
+  const allTags = [...new Set(state.glossary.flatMap(t => t.tags || []))].sort();
+  const tagFilter = document.getElementById('tag-filter');
+  if (tagFilter) {
+    tagFilter.innerHTML = allTags.map(tag =>
+      `<span class="tag-chip ${activeTagFilter === tag ? 'active' : ''}"
+        onclick="setTagFilter('${escHtml(tag)}')">${escHtml(tag)}</span>`
+    ).join('');
+    if (allTags.length && activeTagFilter) {
+      tagFilter.innerHTML += `<span class="tag-chip" onclick="setTagFilter(null)" style="color:var(--red)">✕ 清除</span>`;
+    }
+  }
+
+  const body = document.getElementById('glossary-table-body');
+  if (!body) return;
+  if (!items.length) {
+    body.innerHTML = '<div class="glossary-empty">' + (q || activeTagFilter ? '无匹配术语' : '暂无术语') + '</div>';
+    return;
+  }
+
+  body.innerHTML = items.map(t => `
+    <div class="glossary-row" id="grow-${t.id}">
+      <div class="g-cell g-cell-en" ondblclick="editGlossaryCell('${t.id}','en',this)">${escHtml(t.en)}</div>
+      <div class="g-cell g-cell-zh" ondblclick="editGlossaryCell('${t.id}','zh',this)">${escHtml(t.zh)}</div>
+      <div class="g-cell g-cell-note" ondblclick="editGlossaryCell('${t.id}','note',this)">${escHtml(t.note || '—')}</div>
+      <div class="g-cell">
+        <div class="g-cell-tags">${(t.tags || []).map(tag => `<span class="g-tag">${escHtml(tag)}</span>`).join('')}</div>
+      </div>
+      <div class="g-cell g-cell-actions">
+        <button class="icon-btn danger" title="删除" onclick="deleteGlossaryEntry('${t.id}')">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setTagFilter(tag) {
+  activeTagFilter = tag;
+  renderGlossaryPage();
+}
+
+// Double-click inline edit
+function editGlossaryCell(id, field, el) {
+  const original = el.textContent === '—' ? '' : el.textContent;
+  const input = document.createElement('input');
+  input.className = 'g-edit-input';
+  input.value = original;
+  el.innerHTML = '';
+  el.appendChild(input);
+  input.focus();
+  input.select();
+
+  async function save() {
+    const val = input.value.trim();
+    el.textContent = val || '—';
+    const entry = state.glossary.find(t => t.id === id);
+    if (!entry || entry[field] === val) return;
+    entry[field] = val;
+    await api('/api/glossary', { method: 'POST', body: state.glossary });
+  }
+
+  input.addEventListener('blur', save);
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); input.blur(); }
+    if (e.key === 'Escape') { el.textContent = original || '—'; }
+  });
+}
+
+async function deleteGlossaryEntry(id) {
+  await api(`/api/glossary/entry/${id}`, { method: 'DELETE' });
+  state.glossary = state.glossary.filter(t => t.id !== id);
+  renderGlossaryPage();
+  toast('术语已删除');
+}
+
+// ── Bulk import ──
+function toggleImport() {
+  const area = document.getElementById('import-area');
+  area.classList.toggle('show');
+  if (area.classList.contains('show')) document.getElementById('import-text').focus();
+}
+
+async function importGlossary() {
+  const text = document.getElementById('import-text').value.trim();
+  if (!text) return;
+  const lines = text.split('\n').filter(l => l.trim());
+  let added = 0;
+  for (const line of lines) {
+    const parts = line.split(',').map(s => s.trim());
+    if (parts.length < 2 || !parts[0] || !parts[1]) continue;
+    const [en, zh, note = '', tagsRaw = ''] = parts;
+    const tags = tagsRaw ? tagsRaw.split('|').map(t => t.trim()).filter(Boolean) : [];
+    const entry = await api('/api/glossary/entry', { method: 'POST', body: { en, zh, note, tags } });
+    state.glossary.push(entry);
+    added++;
+  }
+  document.getElementById('import-text').value = '';
+  toggleImport();
+  renderGlossaryPage();
+  toast(`已导入 ${added} 条术语`);
+}
+
+// ── Export as Obsidian .md ──
+function exportGlossaryMd() {
+  if (!state.glossary.length) { toast('术语表为空'); return; }
+  const now = new Date();
+  const id = now.toISOString().replace(/[-T:]/g,'').slice(0,12);
+  const date = now.toISOString().slice(0,10);
+  const rows = state.glossary.map(t =>
+    `| ${t.en} | ${t.zh} | ${t.note || ''} | ${(t.tags||[]).join(', ')} |`
+  ).join('\n');
+
+  const cards = state.glossary.map(t =>
+    `${t.en} 的标准译法？\n?\n${t.zh}${t.note ? `（${t.note}）` : ''}`
+  ).join('\n\n');
+
+  const md = `---
+id: "${id}"
+title: "翻译规范-术语表"
+source_type: translation
+tags:
+  - 翻译规范
+  - 术语表
+date: ${date}
+status: draft
+reviewable: true
+---
+
+# 翻译规范-术语表
+
+## 术语对照
+
+| 英文 | 中文 | 备注 | 标签 |
+|---|---|---|---|
+${rows}
+
+## Cards
+
+#flashcards
+
+${cards}
+`;
+
+  const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = '翻译规范-术语表.md';
+  a.click(); URL.revokeObjectURL(url);
+  toast('术语表已导出');
 }
 
 // ══════════════════════════════════════
@@ -1997,37 +2575,55 @@ function escHtml(s) {
 // RESIZE HANDLE
 // ══════════════════════════════════════
 function initResizeHandle() {
+  // ── Final area resize (bottom handle) ──
   const handle = document.getElementById('ws-resize-handle');
   const finalEl = document.getElementById('ws-final');
-  const colsEl  = document.querySelector('.ws-columns');
-  if (!handle || !finalEl || !colsEl) return;
+  if (handle && finalEl) {
+    let dragging = false, startY = 0, startH = 0;
+    handle.addEventListener('mousedown', e => {
+      dragging = true; startY = e.clientY;
+      startH = finalEl.getBoundingClientRect().height;
+      document.body.style.cursor = 'ns-resize';
+      document.body.style.userSelect = 'none';
+    });
+    document.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const newH = Math.max(80, Math.min(window.innerHeight * 0.6, startH + (startY - e.clientY)));
+      finalEl.style.maxHeight = newH + 'px';
+      finalEl.style.minHeight = newH + 'px';
+    });
+    document.addEventListener('mouseup', () => {
+      if (!dragging) return;
+      dragging = false;
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    });
+  }
 
-  let dragging = false;
-  let startY = 0;
-  let startFinalH = 0;
-
-  handle.addEventListener('mousedown', e => {
-    dragging = true;
-    startY = e.clientY;
-    startFinalH = finalEl.getBoundingClientRect().height;
-    document.body.style.cursor = 'ns-resize';
-    document.body.style.userSelect = 'none';
-  });
-
-  document.addEventListener('mousemove', e => {
-    if (!dragging) return;
-    const delta = startY - e.clientY; // drag up = bigger final area
-    const newH = Math.max(80, Math.min(window.innerHeight * 0.6, startFinalH + delta));
-    finalEl.style.maxHeight = newH + 'px';
-    finalEl.style.minHeight = newH + 'px';
-  });
-
-  document.addEventListener('mouseup', () => {
-    if (!dragging) return;
-    dragging = false;
-    document.body.style.cursor = '';
-    document.body.style.userSelect = '';
-  });
+  // ── Original area resize (bottom handle on original box) ──
+  const origHandle = document.getElementById('ws-original-handle');
+  const origEl = document.querySelector('.ws-original');
+  if (origHandle && origEl) {
+    let dragging = false, startY = 0, startH = 0;
+    origHandle.addEventListener('mousedown', e => {
+      dragging = true; startY = e.clientY;
+      startH = origEl.getBoundingClientRect().height;
+      document.body.style.cursor = 'ns-resize';
+      document.body.style.userSelect = 'none';
+    });
+    document.addEventListener('mousemove', e => {
+      if (!dragging) return;
+      const newH = Math.max(52, Math.min(window.innerHeight * 0.4, startH + (e.clientY - startY)));
+      origEl.style.maxHeight = newH + 'px';
+      origEl.style.minHeight = newH + 'px';
+    });
+    document.addEventListener('mouseup', () => {
+      if (!dragging) return;
+      dragging = false;
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    });
+  }
 }
 
 // ══════════════════════════════════════
