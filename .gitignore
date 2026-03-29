@@ -1,0 +1,14 @@
+# 虚拟环境
+.venv/
+
+# 数据（含 API Keys，不要上传）
+data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>汉化工作台</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=JetBrains+Mono:wght@400;500;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+:root {
+  --ink:       #1a1814;
+  --ink2:      #2e2b26;
+  --ink3:      #46433c;
+  --dust:      #8a8478;
+  --fog:       #b8b2a8;
+  --mist:      #d8d3cc;
+  --paper:     #f2ede6;
+  --paper2:    #e8e2d8;
+  --paper3:    #ddd6c8;
+  --warm:      #f7f2eb;
+  --red:       #c0392b;
+  --gold:      #9a7c3f;
+  --gold2:     #c4a052;
+  --teal:      #2a7a6e;
+  --blue:      #2c5f8a;
+  --claude:    #7c5cbf;
+  --gpt:       #2a7a4f;
+  --gemini:    #2c5f8a;
+  --border:    rgba(26,24,20,0.12);
+  --border2:   rgba(26,24,20,0.06);
+  --shadow:    0 1px 3px rgba(26,24,20,0.08), 0 4px 16px rgba(26,24,20,0.06);
+  --shadow2:   0 2px 8px rgba(26,24,20,0.12), 0 8px 32px rgba(26,24,20,0.08);
+  --r:         6px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ══════════════════════════════════════
+   LAYOUT SHELL
+══════════════════════════════════════ */
+#app { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem;
+  height: 52px;
+  background: var(--ink);
+  color: var(--mist);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 100;
+}
+.topbar-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold2);
+  letter-spacing: 0.08em;
+}
+.topbar-sep { flex: 1; }
+.topbar-nav button {
+  background: none;
+  border: none;
+  color: var(--fog);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  cursor: pointer;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  transition: all 0.15s;
+  letter-spacing: 0.05em;
+}
+.topbar-nav button:hover { color: var(--paper); background: rgba(255,255,255,0.08); }
+.topbar-nav button.active { color: var(--gold2); }
+
+.content { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+
+/* ══════════════════════════════════════
+   HOME PAGE
+══════════════════════════════════════ */
+#page-home {
+  flex: 1;
+  overflow-y: auto;
+  padding: 3rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--warm);
+}
+
+.home-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 560px;
+}
+.home-hero h1 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+}
+.home-hero p {
+  color: var(--dust);
+  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.home-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+.action-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: var(--shadow);
+}
+.action-card:hover { transform: translateY(-2px); box-shadow: var(--shadow2); border-color: var(--gold2); }
+.action-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.action-card h3 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.action-card p {
+  font-size: 0.8rem;
+  color: var(--dust);
+  line-height: 1.5;
+}
+
+/* Recent projects */
+.home-section {
+  width: 100%;
+  max-width: 640px;
+}
+.home-section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--dust);
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.project-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.project-item:hover { border-color: var(--gold2); background: var(--paper2); }
+.project-mode-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  background: var(--paper2);
+  color: var(--dust);
+  flex-shrink: 0;
+}
+.project-mode-badge.translate { background: #e8f0fc; color: var(--blue); }
+.project-mode-badge.proofread { background: #e8f5f0; color: var(--teal); }
+.project-name { flex: 1; font-size: 0.88rem; color: var(--ink2); }
+.project-progress {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--dust);
+}
+.project-delete {
+  background: none;
+  border: none;
+  color: var(--mist);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+.project-delete:hover { color: var(--red); background: #fef2f2; }
+
+/* ══════════════════════════════════════
+   MODALS
+══════════════════════════════════════ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,24,20,0.5);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+}
+.modal-overlay.show { display: flex; }
+.modal {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 2rem;
+  width: 500px;
+  max-width: 95vw;
+  box-shadow: var(--shadow2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal h2 {
+  font-family: 'Crimson Pro', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+.form-field { margin-bottom: 1.2rem; }
+.form-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dust);
+  margin-bottom: 0.4rem;
+}
+input[type=text], input[type=password], textarea, select {
+  width: 100%;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--r);
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--gold2); }
+textarea { resize: vertical; line-height: 1.5; }
+.upload-zone {
+  border: 1.5px dashed var(--mist);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--warm);
+}
+.upload-zone:hover, .upload-zone.drag { border-color: var(--gold2); background: var(--paper2); }
+.upload-zone p { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--dust); }
+.upload-zone .fname { color: var(--teal); margin-top: 0.3rem; }
+input[type=file] { display: none; }
+
+.modal-actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1.5rem; }
+.btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  letter-spacing: 0.03em;
+}
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--ink2); }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-ghost { background: transparent; color: var(--dust); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--ink3); color: var(--ink); }
+.btn-danger { background: #fef2f2; color: var(--red); border: 1px solid #fecaca; }
+.btn-danger:hover { background: #fee2e2; }
+
+/* ══════════════════════════════════════
+   SETTINGS PAGE
+══════════════════════════════════════ */
+#page-settings {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem 2rem 4rem;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+  display: none;
+}
+#page-settings.show { display: block; }
+.settings-section {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.settings-section h3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--dust);
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+.settings-section textarea { min-height: 140px; font-size: 0.78rem; }
+
+/* ══════════════════════════════════════
+   WORKSPACE
+══════════════════════════════════════ */
+#page-workspace {
+  flex: 1;
+  overflow: hidden;
+  display: none;
+  flex-direction: row;
+}
+#page-workspace.show { display: flex; }
+
+/* Sidebar */
+.ws-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper2);
+  overflow: hidden;
+}
+.ws-sidebar-header {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background: var(--paper);
+}
+.ws-sidebar-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dust);
+}
+.ws-sidebar-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--ink3);
+}
+.ws-sidebar-list { overflow-y: auto; flex: 1; }
+
+.seg-item {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border2);
+  cursor: pointer;
+  transition: background 0.1s;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.seg-item:hover { background: var(--paper); }
+.seg-item.active { background: var(--warm); border-left: 2px solid var(--gold2); }
+.seg-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--mist);
+  flex-shrink: 0;
+  padding-top: 2px;
+  width: 20px;
+}
+.seg-preview {
+  font-size: 0.76rem;
+  color: var(--ink3);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  flex: 1;
+}
+.seg-status {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mist);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.seg-status.done { background: var(--teal); }     /* 已确认 */
+.seg-status.partial { background: var(--gold2); } /* AI 有译文 */
+.seg-status.modified { background: #f97316; }      /* 编辑中未确认 */
+
+.sidebar-legend {
+  padding: 0.45rem 1rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  background: var(--paper);
+  flex-shrink: 0;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 0.3rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem; color: var(--dust);
+}
+.legend-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+/* Main editor */
+.ws-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--warm);
+}
+
+/* Original text bar */
+.ws-original {
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1.4rem;
+  flex-shrink: 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  max-height: 160px;
+  overflow-y: auto;
+}
+.ws-original-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dust);
+  flex-shrink: 0;
+  padding-top: 2px;
+  width: 40px;
+}
+.ws-original-text {
+  flex: 1;
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink2);
+}
+/* Glossary highlights */
+.ws-original-text .hl-term {
+  background: #fef9c3;
+  border-bottom: 1.5px solid var(--gold2);
+  cursor: help;
+  position: relative;
+}
+.ws-original-nav {
+  display: flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+.nav-btn {
+  width: 28px; height: 28px;
+  background: var(--paper2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--dust);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.nav-btn:hover { border-color: var(--gold2); color: var(--ink); }
+.nav-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Glossary hint bar */
+.ws-glossary-bar {
+  background: #fffbeb;
+  border-bottom: 1px solid #fde68a;
+  padding: 0.4rem 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 32px;
+}
+.glossary-bar-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.glossary-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: white;
+  border: 1px solid #fde68a;
+  border-radius: 3px;
+  padding: 0.1rem 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  cursor: default;
+}
+.glossary-chip .en { color: var(--ink3); }
+.glossary-chip .arrow { color: var(--mist); }
+.glossary-chip .zh { color: var(--gold); font-weight: 500; }
+.glossary-bar-add {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--dust);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.glossary-bar-add:hover { color: var(--gold); }
+
+/* AI columns area */
+.ws-columns {
+  flex: 1;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-col {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--paper);
+}
+.ai-col:last-child { border-right: none; }
+
+.ai-col-header {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  background: var(--paper2);
+  position: relative;
+}
+.ai-progress-bar {
+  position: absolute;
+  bottom: 0; left: 0;
+  height: 2px;
+  background: var(--gold2);
+  transition: width 0.4s ease;
+  border-radius: 0 1px 1px 0;
+}
+.ai-progress-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--dust);
+  margin-left: auto;
+}
+.ai-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.ai-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex: 1;
+}
+.ai-col-header .use-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--dust);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.ai-col-header .use-btn:hover { border-color: var(--gold2); color: var(--gold); }
+
+.ai-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.msg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.msg-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mist);
+}
+.msg-body {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--ink2);
+  padding: 0.5rem 0.7rem;
+  border-radius: 4px;
+  background: var(--warm);
+  border: 1px solid var(--border2);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.msg.user .msg-body { background: #eef3fb; border-color: #c5d8f0; }
+.msg.loading .msg-body {
+  color: var(--dust);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.spinner {
+  width: 12px; height: 12px;
+  border: 1.5px solid var(--mist);
+  border-top-color: var(--gold2);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ai-input-area {
+  padding: 0.6rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  background: var(--paper2);
+}
+.ai-input {
+  flex: 1;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.78rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  outline: none;
+  resize: none;
+  line-height: 1.5;
+  min-height: 36px;
+  max-height: 100px;
+}
+.ai-input:focus { border-color: var(--gold2); }
+.ai-send {
+  background: var(--ink);
+  border: none;
+  color: var(--paper);
+  border-radius: 4px;
+  padding: 0 0.6rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+.ai-send:hover { opacity: 0.8; }
+.ai-send:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* Final area */
+.ws-resize-handle {
+  height: 5px;
+  background: var(--paper2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  cursor: ns-resize;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+.ws-resize-handle:hover { background: var(--paper3); }
+.ws-resize-handle::after {
+  content: '';
+  width: 32px; height: 2px;
+  background: var(--mist);
+  border-radius: 1px;
+}
+.ws-final {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0.8rem 1.4rem;
+  background: var(--paper);
+  align-items: flex-start;
+  flex-shrink: 0;
+  min-height: 80px;
+  max-height: 50vh;
+  overflow: hidden;
+}
+.ws-final-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--dust);
+  flex-shrink: 0;
+  padding-top: 0.55rem;
+  width: 40px;
+}
+#final-text {
+  flex: 1;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  color: var(--ink);
+  font-family: 'Noto Serif SC', serif;
+  font-size: 0.88rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--r);
+  outline: none;
+  resize: none;
+  line-height: 1.7;
+  min-height: 48px;
+  transition: border-color 0.15s;
+  align-self: stretch;
+}
+#final-text:focus { border-color: var(--gold2); }
+.ws-final-btns { display: flex; flex-direction: column; gap: 0.4rem; flex-shrink: 0; }
+.btn-confirm {
+  padding: 0.45rem 1rem;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.btn-confirm:hover { opacity: 0.85; }
+.btn-skip-ws {
+  padding: 0.35rem 1rem;
+  background: transparent;
+  color: var(--dust);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-skip-ws:hover { border-color: var(--ink3); color: var(--ink); }
+
+/* Export bar */
+.ws-export-bar {
+  display: none;
+  padding: 0.55rem 1.4rem;
+  background: var(--paper2);
+  border-top: 1px solid var(--border);
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+.ws-export-bar.show { display: flex; }
+.export-info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--dust);
+  flex: 1;
+}
+.export-info span { color: var(--teal); font-weight: 500; }
+.btn-export {
+  padding: 0.4rem 1rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  color: var(--ink3);
+  border-radius: var(--r);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-export:hover { border-color: var(--gold2); color: var(--gold); }
+
+/* Loading overlay removed — progress shown inline */
+
+/* ══════════════════════════════════════
+   TOAST
+══════════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  z-index: 999;
+  opacity: 0;
+  transition: all 0.25s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--mist); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-logo">汉化工作台</div>
+    <div class="topbar-sep"></div>
+    <div class="topbar-nav">
+      <button onclick="showPage('home')" id="nav-home" class="active">首页</button>
+      <button onclick="showPage('settings')" id="nav-settings">设置</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── HOME ── -->
+    <div id="page-home">
+      <div class="home-hero">
+        <h1>汉化工作台</h1>
+        <p>// 多 AI 协作翻译 · 逐段审稿 · 术语管理</p>
+      </div>
+
+      <div class="home-actions" style="grid-template-columns:1fr;max-width:320px">
+        <div class="action-card" onclick="openModal('modal-new-project')">
+          <div class="action-card-icon">📂</div>
+          <h3>新建项目</h3>
+          <p>上传 CSV，自动识别翻译或校对模式，支持手动切换</p>
+        </div>
+      </div>
+
+      <div class="home-section">
+        <div class="home-section-title">最近项目</div>
+        <div id="project-list">
+          <p style="color:var(--dust);font-size:0.82rem;padding:1rem 0;">暂无项目</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS ── -->
+    <div id="page-settings">
+      <div class="settings-section">
+        <h3>API 密钥</h3>
+        <div class="form-field">
+          <label class="form-label">Anthropic（Claude）</label>
+          <input type="password" id="s-claude-key" placeholder="sk-ant-..." />
+        </div>
+        <div class="form-field">
+          <label class="form-label">OpenAI（GPT-4o）</label>
+          <input type="password" id="s-openai-key" placeholder="sk-..." />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Google（Gemini）</label>
+          <input type="password" id="s-gemini-key" placeholder="AIza..." />
+        </div>
+      </div>
+      <div class="settings-section">
+        <h3>翻译提示词</h3>
+        <div class="form-field">
+          <label class="form-label">System Prompt（翻译模式）</label>
+          <textarea id="s-translate-prompt" rows="8"></textarea>
+        </div>
+      </div>
+      <div class="settings-section">
+        <h3>校对提示词</h3>
+        <div class="form-field">
+          <label class="form-label">System Prompt（校对模式）</label>
+          <textarea id="s-proofread-prompt" rows="8"></textarea>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="saveSettings()">保存设置</button>
+    </div>
+
+    <!-- ── WORKSPACE ── -->
+    <div id="page-workspace">
+      <div class="ws-sidebar">
+        <div class="ws-sidebar-header">
+          <span class="ws-sidebar-title">段落</span>
+          <span class="ws-sidebar-count"><span id="ws-done">0</span>/<span id="ws-total">0</span></span>
+        </div>
+        <div class="ws-sidebar-list" id="ws-sidebar-list"></div>
+        <div class="sidebar-legend">
+          <div class="legend-item" title="已点击「确认」"><div class="legend-dot" style="background:var(--teal)"></div>已确认</div>
+          <div class="legend-item" title="定稿区有内容但未点确认"><div class="legend-dot" style="background:#f97316"></div>编辑中</div>
+          <div class="legend-item" title="AI 已给出译文，等待审阅"><div class="legend-dot" style="background:var(--gold2)"></div>待审阅</div>
+          <div class="legend-item" title="AI 尚未翻译此段"><div class="legend-dot" style="background:var(--mist)"></div>未处理</div>
+        </div>
+      </div>
+
+      <div class="ws-main">
+        <div class="ws-original">
+          <div class="ws-original-label">原文</div>
+          <div class="ws-original-text" id="ws-original-text">—</div>
+          <div class="ws-original-nav">
+            <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" title="上一段">↑</button>
+            <button class="nav-btn" id="btn-next" onclick="navigate(1)" title="下一段">↓</button>
+          </div>
+        </div>
+
+        <div class="ws-glossary-bar" id="ws-glossary-bar">
+          <span class="glossary-bar-label">术语</span>
+          <span id="glossary-chips"></span>
+          <button class="glossary-bar-add" onclick="openAddGlossaryFromBar()">+ 添加术语</button>
+        </div>
+
+        <div class="ws-columns">
+          <!-- Claude -->
+          <div class="ai-col" id="col-claude">
+            <div class="ai-col-header" id="hdr-claude">
+              <div class="ai-dot" style="background:var(--claude)"></div>
+              <div class="ai-name" style="color:var(--claude)">Claude</div>
+              <span class="ai-progress-label" id="prog-label-claude"></span>
+              <button class="use-btn" onclick="useTrans('claude')">使用此译</button>
+              <div class="ai-progress-bar" id="prog-bar-claude" style="width:0%"></div>
+            </div>
+            <div class="ai-messages" id="msgs-claude"></div>
+            <div class="ai-input-area">
+              <textarea class="ai-input" id="input-claude" placeholder="追问或要求修改…" rows="1"
+                onkeydown="handleInputKey(event,'claude')"></textarea>
+              <button class="ai-send" onclick="sendMsg('claude')" id="send-claude">↑</button>
+            </div>
+          </div>
+          <!-- GPT -->
+          <div class="ai-col" id="col-gpt">
+            <div class="ai-col-header" id="hdr-gpt">
+              <div class="ai-dot" style="background:var(--gpt)"></div>
+              <div class="ai-name" style="color:var(--gpt)">GPT-4o</div>
+              <span class="ai-progress-label" id="prog-label-gpt"></span>
+              <button class="use-btn" onclick="useTrans('gpt')">使用此译</button>
+              <div class="ai-progress-bar" id="prog-bar-gpt" style="width:0%"></div>
+            </div>
+            <div class="ai-messages" id="msgs-gpt"></div>
+            <div class="ai-input-area">
+              <textarea class="ai-input" id="input-gpt" placeholder="追问或要求修改…" rows="1"
+                onkeydown="handleInputKey(event,'gpt')"></textarea>
+              <button class="ai-send" onclick="sendMsg('gpt')" id="send-gpt">↑</button>
+            </div>
+          </div>
+          <!-- Gemini -->
+          <div class="ai-col" id="col-gemini">
+            <div class="ai-col-header" id="hdr-gemini">
+              <div class="ai-dot" style="background:var(--gemini)"></div>
+              <div class="ai-name" style="color:var(--gemini)">Gemini</div>
+              <span class="ai-progress-label" id="prog-label-gemini"></span>
+              <button class="use-btn" onclick="useTrans('gemini')">使用此译</button>
+              <div class="ai-progress-bar" id="prog-bar-gemini" style="width:0%"></div>
+            </div>
+            <div class="ai-messages" id="msgs-gemini"></div>
+            <div class="ai-input-area">
+              <textarea class="ai-input" id="input-gemini" placeholder="追问或要求修改…" rows="1"
+                onkeydown="handleInputKey(event,'gemini')"></textarea>
+              <button class="ai-send" onclick="sendMsg('gemini')" id="send-gemini">↑</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ws-resize-handle" id="ws-resize-handle"></div>
+        <div class="ws-final" id="ws-final">
+          <div class="ws-final-label">定稿</div>
+          <textarea id="final-text" placeholder="从上方「使用此译」填入，或直接编辑…"></textarea>
+          <div class="ws-final-btns">
+            <button class="btn-confirm" onclick="confirmSegment()">✓ 确认</button>
+            <button class="btn-skip-ws" onclick="navigate(1)">跳过</button>
+          </div>
+        </div>
+
+        <div class="ws-export-bar" id="ws-export-bar">
+          <div class="export-info">已完成 <span id="export-count">0</span> 条</div>
+          <select id="export-suffix" style="font-family:JetBrains Mono,monospace;font-size:0.68rem;background:var(--paper);border:1px solid var(--border);color:var(--ink3);padding:0.3rem 0.5rem;border-radius:4px;cursor:pointer">
+            <option value="_translated">后缀：_translated</option>
+            <option value="_proofread">后缀：_proofread</option>
+            <option value="">保持原文件名</option>
+          </select>
+          <button class="btn-export" onclick="exportCSV()">导出 CSV</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /app -->
+
+<!-- ── MODALS ── -->
+<!-- New Project (unified) -->
+<div class="modal-overlay" id="modal-new-project">
+  <div class="modal">
+    <h2>新建项目</h2>
+    <div class="form-field">
+      <label class="form-label">上传 CSV 文件</label>
+      <div class="upload-zone" id="uz-project" onclick="document.getElementById('fi-project').click()">
+        <p>点击选择或拖放 .csv 文件</p>
+        <p class="fname" id="fn-project"></p>
+      </div>
+      <input type="file" id="fi-project" accept=".csv" />
+    </div>
+    <div class="form-field" id="mode-detect-row" style="display:none">
+      <label class="form-label">识别模式</label>
+      <div style="display:flex;gap:0.6rem;align-items:center">
+        <span id="mode-detect-label" style="font-family:JetBrains Mono,monospace;font-size:0.78rem;flex:1"></span>
+        <select id="mode-select" style="width:auto;flex-shrink:0">
+          <option value="translate">翻译模式</option>
+          <option value="proofread">校对模式</option>
+        </select>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('modal-new-project')">取消</button>
+      <button class="btn btn-primary" id="btn-start-project" onclick="startProject()" disabled>开始</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Glossary -->
+<div class="modal-overlay" id="modal-add-glossary">
+  <div class="modal">
+    <h2>添加术语</h2>
+    <div class="form-field">
+      <label class="form-label">英文原词</label>
+      <input type="text" id="g-en" placeholder="e.g. slack" />
+    </div>
+    <div class="form-field">
+      <label class="form-label">中文译法</label>
+      <input type="text" id="g-zh" placeholder="e.g. 余裕" />
+    </div>
+    <div class="form-field">
+      <label class="form-label">备注（可选）</label>
+      <input type="text" id="g-note" placeholder="e.g. 不用「松弛」" />
+    </div>
+    <div class="form-field">
+      <label class="form-label">标签（逗号分隔，可选）</label>
+      <input type="text" id="g-tags" placeholder="e.g. On Slack, 理性主义" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('modal-add-glossary')">取消</button>
+      <button class="btn btn-primary" onclick="addGlossaryEntry()">添加</button>
+    </div>
+  </div>
+</div>
+
+<!-- Loading overlay removed: progress shown inline in AI col headers -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+let state = {
+  project: null,   // current project object
+  glossary: [],
+  settings: {},
+  currentIdx: 0,
+};
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+async function init() {
+  state.settings = await api('/api/settings');
+  state.glossary = await api('/api/glossary');
+  fillSettings();
+  await loadProjectList();
+  setupFileUploads();
+  initResizeHandle();
+}
+
+// ══════════════════════════════════════
+// API HELPERS
+// ══════════════════════════════════════
+async function api(url, opts = {}) {
+  const res = await fetch(url, {
+    headers: { 'Content-Type': 'application/json', ...opts.headers },
+    ...opts,
+    body: opts.body ? JSON.stringify(opts.body) : undefined,
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+// ══════════════════════════════════════
+// PAGE NAV
+// ══════════════════════════════════════
+function showPage(name) {
+  document.querySelectorAll('[id^=page-]').forEach(el => {
+    el.style.display = 'none';
+    el.classList.remove('show');
+  });
+  document.querySelectorAll('.topbar-nav button').forEach(b => b.classList.remove('active'));
+
+  if (name === 'workspace') {
+    document.getElementById('page-workspace').style.display = '';
+    document.getElementById('page-workspace').classList.add('show');
+  } else if (name === 'settings') {
+    document.getElementById('page-settings').style.display = 'block';
+    document.getElementById('page-settings').classList.add('show');
+    document.getElementById('nav-settings').classList.add('active');
+  } else {
+    document.getElementById('page-home').style.display = '';
+    document.getElementById('nav-home').classList.add('active');
+  }
+}
+
+// ══════════════════════════════════════
+// SETTINGS
+// ══════════════════════════════════════
+function fillSettings() {
+  const s = state.settings;
+  document.getElementById('s-claude-key').value = s.claudeKey || '';
+  document.getElementById('s-openai-key').value = s.openaiKey || '';
+  document.getElementById('s-gemini-key').value = s.geminiKey || '';
+  document.getElementById('s-translate-prompt').value = s.systemPrompt || '';
+  document.getElementById('s-proofread-prompt').value = s.proofreadPrompt || '';
+}
+
+async function saveSettings() {
+  const data = {
+    claudeKey: document.getElementById('s-claude-key').value.trim(),
+    openaiKey: document.getElementById('s-openai-key').value.trim(),
+    geminiKey: document.getElementById('s-gemini-key').value.trim(),
+    systemPrompt: document.getElementById('s-translate-prompt').value,
+    proofreadPrompt: document.getElementById('s-proofread-prompt').value,
+  };
+  await api('/api/settings', { method: 'POST', body: data });
+  state.settings = data;
+  toast('设置已保存');
+}
+
+// ══════════════════════════════════════
+// PROJECT LIST
+// ══════════════════════════════════════
+async function loadProjectList() {
+  const projects = await api('/api/projects');
+  const el = document.getElementById('project-list');
+  if (!projects.length) {
+    el.innerHTML = '<p style="color:var(--dust);font-size:0.82rem;padding:1rem 0;">暂无项目</p>';
+    return;
+  }
+  el.innerHTML = projects.map(p => `
+    <div class="project-item" onclick="openProject('${p.id}')">
+      <span class="project-mode-badge ${p.mode}">${p.mode === 'proofread' ? '含译文' : '翻译'}</span>
+      <span class="project-name">${escHtml(p.filename)}</span>
+      <span class="project-progress">${p.done}/${p.total}</span>
+      <button class="project-delete" onclick="deleteProject(event,'${p.id}')">✕</button>
+    </div>
+  `).join('');
+}
+
+async function openProject(pid) {
+  const project = await api(`/api/projects/${pid}`);
+  state.project = project;
+  enterWorkspace();
+}
+
+async function deleteProject(e, pid) {
+  e.stopPropagation();
+  if (!confirm('确定删除此项目？')) return;
+  await api(`/api/projects/${pid}`, { method: 'DELETE' });
+  await loadProjectList();
+  toast('项目已删除');
+}
+
+// ══════════════════════════════════════
+// FILE UPLOADS
+// ══════════════════════════════════════
+let csvFiles = {};
+
+function setupFileUploads() {
+  const zone = document.getElementById('uz-project');
+  const input = document.getElementById('fi-project');
+  input.addEventListener('change', e => {
+    if (e.target.files[0]) handleProjectFile(e.target.files[0]);
+  });
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault(); zone.classList.remove('drag');
+    if (e.dataTransfer.files[0]) handleProjectFile(e.dataTransfer.files[0]);
+  });
+}
+
+async function handleProjectFile(file) {
+  csvFiles['project'] = file;
+  document.getElementById('fn-project').textContent = file.name;
+  // Auto-detect mode
+  const text = await file.text();
+  const entries = parseCSV(text);
+  const hasTranslation = entries.some(e => e.existing && e.existing.trim());
+  const detected = hasTranslation ? 'proofread' : 'translate';
+  const label = hasTranslation
+    ? `已检测到译文列（${entries.filter(e=>e.existing).length} 条），将预填入定稿区`
+    : `未检测到译文列，AI 将从头初译`;
+  document.getElementById('mode-detect-label').textContent = label;
+  document.getElementById('mode-select').value = detected;
+  document.getElementById('mode-detect-row').style.display = '';
+  document.getElementById('btn-start-project').disabled = false;
+}
+
+// ══════════════════════════════════════
+// CSV PARSING
+// ══════════════════════════════════════
+function parseCSV(text) {
+  const lines = text.split('\n').filter(l => l.trim());
+  return lines.map(line => {
+    const cols = parseCSVLine(line);
+    const key = cols[0]?.trim() || '';
+    const col1 = cols[1]?.trim() || '';
+    const col2 = cols[2]?.trim() || '';
+    // Detect column layout:
+    // 3-col proofread: key, english_original, chinese_translation
+    // 2-col translate: key, english_original
+    // Heuristic: if col2 exists and col1 looks English (mostly ASCII), treat as proofread
+    const isProofread = col2 && col2.length > 0;
+    return {
+      key,
+      original: col1,
+      existing: isProofread ? col2 : '',
+    };
+  }).filter(e => e.original);
+}
+
+function parseCSVLine(line) {
+  const result = []; let cur = ''; let inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
+    else if (c === ',' && !inQ) { result.push(cur); cur = ''; }
+    else cur += c;
+  }
+  result.push(cur);
+  return result;
+}
+
+// ══════════════════════════════════════
+// NEW PROJECT FLOWS
+// ══════════════════════════════════════
+async function startProject() {
+  const file = csvFiles['project'];
+  if (!file) return;
+  const text = await file.text();
+  const entries = parseCSV(text);
+  if (!entries.length) { toast('CSV 解析失败，请检查格式'); return; }
+
+  const mode = document.getElementById('mode-select').value;
+  closeModal('modal-new-project');
+
+  const pid = await createProject(entries, mode, file.name);
+  state.project = await api(`/api/projects/${pid}`);
+
+  // Enter workspace immediately, translate in background
+  enterWorkspace();
+
+  // Seed proofread finals synchronously (fast, no AI calls)
+  if (entries.some(e => e.existing)) {
+    await seedProofreadFinals();
+  }
+
+  // Kick off background AI translation (non-blocking)
+  bulkTranslateBackground();
+}
+
+async function createProject(entries, mode, filename) {
+  const res = await api('/api/projects', {
+    method: 'POST',
+    body: { entries, mode, filename },
+  });
+  return res.id;
+}
+
+async function seedProofreadFinals() {
+  const project = state.project;
+  for (let i = 0; i < project.segments.length; i++) {
+    const seg = project.segments[i];
+    const entry = project.entries[i];
+    if (!entry.existing || seg.final) continue;
+    await api(`/api/projects/${project.id}/segment/${i}`, {
+      method: 'PATCH',
+      body: { final: entry.existing },
+    });
+    state.project.segments[i].final = entry.existing;
+    updateSidebarItem(i);
+  }
+  updateDoneCount();
+  updateExportBar();
+}
+
+// ══════════════════════════════════════
+// BULK TRANSLATE — batched background
+// ══════════════════════════════════════
+
+// Batch size: max segments per API call
+const BATCH_SIZE = 25;
+
+function makeBatches(entries) {
+  const batches = [];
+  for (let i = 0; i < entries.length; i += BATCH_SIZE) {
+    batches.push(entries.slice(i, i + BATCH_SIZE).map((e, j) => ({ idx: i + j, original: e.original })));
+  }
+  return batches;
+}
+
+function setAIProgress(ai, batch, total, done) {
+  const bar = document.getElementById(`prog-bar-${ai}`);
+  const label = document.getElementById(`prog-label-${ai}`);
+  if (!bar || !label) return;
+  if (done) {
+    bar.style.width = '100%';
+    setTimeout(() => { bar.style.width = '0%'; label.textContent = ''; }, 800);
+  } else {
+    bar.style.width = `${Math.round((batch / total) * 100)}%`;
+    label.textContent = `${batch}/${total} 批`;
+  }
+}
+
+async function bulkTranslateBackground() {
+  const project = state.project;
+  const cache = project.aiCache || {};
+  const sysPrompt = buildSystemPrompt('translate');
+  const batches = makeBatches(project.entries);
+  const total = batches.length;
+
+  // Determine which AIs have keys
+  const aiList = ['claude', 'gpt', 'gemini'].filter(ai => {
+    const keyName = ai === 'gpt' ? 'openaiKey' : `${ai}Key`;
+    return !!state.settings[keyName];
+  });
+
+  if (!aiList.length) return;
+
+  // Run each AI independently in parallel (but batches within each AI are serial)
+  await Promise.allSettled(aiList.map(ai => runAIBatches(ai, batches, total, sysPrompt, cache)));
+}
+
+async function runAIBatches(ai, batches, total, sysPrompt, cache) {
+  const project = state.project;
+  // Skip if fully cached
+  if (cache[ai] && cache[ai].length >= project.entries.length) {
+    await injectCacheIntoSegments(ai, cache[ai]);
+    return;
+  }
+
+  for (let b = 0; b < batches.length; b++) {
+    setAIProgress(ai, b + 1, total, false);
+    const batch = batches[b];
+    const batchText = batch.map(item => `[${item.idx}] ${item.original}`).join('\n\n');
+
+    let raw = null;
+    try {
+      raw = await callAIBulkOnce(ai, batchText, sysPrompt);
+    } catch(e) {
+      console.warn(`${ai} batch ${b+1} failed:`, e.message);
+      continue;
+    }
+
+    if (!raw) continue;
+
+    // Parse this batch's results
+    const parsed = parseAIBulk(raw, project.entries.length);
+
+    // Inject parsed translations immediately into segments
+    for (const item of batch) {
+      const trans = parsed[item.idx] || '';
+      if (!trans) continue;
+      const seg = state.project.segments[item.idx];
+      if (seg[ai].messages.length) continue; // already has messages
+
+      const patch = {
+        [ai]: { messages: [{ role: 'assistant', content: trans }], latest: trans }
+      };
+      await api(`/api/projects/${project.id}/segment/${item.idx}`, {
+        method: 'PATCH', body: patch,
+      });
+      state.project.segments[item.idx][ai] = { messages: [{ role: 'assistant', content: trans }], latest: trans };
+
+      // Live update current view if this segment is visible
+      if (item.idx === state.currentIdx) {
+        renderMessages(ai, [{ role: 'assistant', content: trans }]);
+      }
+      updateSidebarItem(item.idx);
+    }
+  }
+
+  setAIProgress(ai, total, total, true);
+}
+
+async function injectCacheIntoSegments(ai, cacheArr) {
+  const project = state.project;
+  for (let i = 0; i < project.segments.length; i++) {
+    const trans = cacheArr[i] || '';
+    if (!trans || project.segments[i][ai].messages.length) continue;
+    const patch = { [ai]: { messages: [{ role: 'assistant', content: trans }], latest: trans } };
+    await api(`/api/projects/${project.id}/segment/${i}`, { method: 'PATCH', body: patch });
+    state.project.segments[i][ai] = patch[ai];
+    if (i === state.currentIdx) renderMessages(ai, patch[ai].messages);
+    updateSidebarItem(i);
+  }
+}
+
+async function callAIBulkOnce(ai, batchText, sysPrompt) {
+  const prompt = `请将以下每个编号段落翻译成中文。严格保持 [数字] 编号前缀，每段之间空一行，不要有其他说明文字。\n\n${batchText}`;
+  if (ai === 'claude') {
+    const res = await fetch('/api/ai/claude', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'claude-opus-4-5', max_tokens: 8000, system: sysPrompt, messages: [{ role: 'user', content: prompt }] }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message);
+    return d.content?.[0]?.text || '';
+  }
+  if (ai === 'gpt') {
+    const res = await fetch('/api/ai/openai', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'gpt-4o', max_tokens: 8000, messages: [{ role: 'system', content: sysPrompt }, { role: 'user', content: prompt }] }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message);
+    return d.choices?.[0]?.message?.content || '';
+  }
+  if (ai === 'gemini') {
+    const res = await fetch('/api/ai/gemini', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: sysPrompt }] },
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { maxOutputTokens: 8000 },
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message);
+    return d.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  }
+}
+
+// ══════════════════════════════════════
+// AI BULK CALLS
+// ══════════════════════════════════════
+function setStatusDot(ai, status, note) {
+  // Overlay removed; status shown via inline progress bars
+  const bar = document.getElementById(`prog-bar-${ai}`);
+  if (bar) {
+    if (status === 'done') { bar.style.width = '0%'; }
+    else if (status === 'error') { bar.style.background = 'var(--red)'; }
+  }
+}
+
+async function bulkCallClaude(fullText, sysPrompt) {
+  setStatusDot('claude', 'loading', '翻译中…');
+  try {
+    const res = await fetch('/api/ai/claude', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-opus-4-5',
+        max_tokens: 8000,
+        system: sysPrompt,
+        messages: [{ role: 'user', content: bulkPrompt(fullText) }],
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message);
+    setStatusDot('claude', 'done', '完成');
+    return d.content?.[0]?.text || '';
+  } catch(e) { setStatusDot('claude', 'error', e.message?.slice(0,30)); return null; }
+}
+
+async function bulkCallGPT(fullText, sysPrompt) {
+  setStatusDot('gpt', 'loading', '翻译中…');
+  try {
+    const res = await fetch('/api/ai/openai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'gpt-4o',
+        max_tokens: 8000,
+        messages: [
+          { role: 'system', content: sysPrompt },
+          { role: 'user', content: bulkPrompt(fullText) },
+        ],
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message);
+    setStatusDot('gpt', 'done', '完成');
+    return d.choices?.[0]?.message?.content || '';
+  } catch(e) { setStatusDot('gpt', 'error', e.message?.slice(0,30)); return null; }
+}
+
+async function bulkCallGemini(fullText, sysPrompt) {
+  setStatusDot('gemini', 'loading', '翻译中…');
+  try {
+    const res = await fetch('/api/ai/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: sysPrompt }] },
+        contents: [{ parts: [{ text: bulkPrompt(fullText) }] }],
+        generationConfig: { maxOutputTokens: 8000 },
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message);
+    setStatusDot('gemini', 'done', '完成');
+    return d.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  } catch(e) { setStatusDot('gemini', 'error', e.message?.slice(0,30)); return null; }
+}
+
+function bulkPrompt(fullText) {
+  return `请将以下每个编号段落翻译成中文。严格保持 [数字] 编号前缀，每段之间空一行，不要有其他说明文字。\n\n${fullText}`;
+}
+
+function parseAIBulk(text, count) {
+  const result = Array(count).fill('');
+  const re = /\[(\d+)\]\s*([\s\S]*?)(?=\n\n\[\d+\]|$)/g;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    const idx = parseInt(m[1]);
+    if (idx >= 0 && idx < count) result[idx] = m[2].trim();
+  }
+  return result;
+}
+
+// ══════════════════════════════════════
+// WORKSPACE
+// ══════════════════════════════════════
+function enterWorkspace() {
+  loadProjectList(); // refresh home list in background
+  showPage('workspace');
+  buildSidebar();
+  renderSegment(state.project.cursor || 0);
+  updateExportBar();
+}
+
+function buildSidebar() {
+  const segs = state.project.segments;
+  document.getElementById('ws-total').textContent = segs.length;
+  updateDoneCount();
+
+  const list = document.getElementById('ws-sidebar-list');
+  list.innerHTML = segs.map((s, i) => {
+    const orig = state.project.entries[i]?.original || '';
+    return `<div class="seg-item" id="seg-item-${i}" onclick="renderSegment(${i})">
+      <div class="seg-num">${i}</div>
+      <div class="seg-preview">${escHtml(orig.slice(0, 80))}</div>
+      <div class="seg-status ${segStatusClass(s, i)}"></div>
+    </div>`;
+  }).join('');
+}
+
+function renderSegment(idx) {
+  state.currentIdx = idx;
+  const seg = state.project.segments[idx];
+  const entry = state.project.entries[idx];
+
+  // Sidebar active
+  document.querySelectorAll('.seg-item').forEach(el => el.classList.remove('active'));
+  const item = document.getElementById(`seg-item-${idx}`);
+  if (item) { item.classList.add('active'); item.scrollIntoView({ block: 'nearest' }); }
+
+  // Nav
+  document.getElementById('btn-prev').disabled = idx === 0;
+  document.getElementById('btn-next').disabled = idx === state.project.segments.length - 1;
+
+  // Original with term highlights
+  renderOriginal(entry.original);
+
+  // Glossary bar
+  renderGlossaryBar(entry.original);
+
+  // AI columns
+  for (const ai of ['claude', 'gpt', 'gemini']) {
+    renderMessages(ai, seg[ai].messages);
+  }
+
+  // Final
+  const finalEl = document.getElementById('final-text');
+  finalEl.value = seg.final || '';
+  // Track unsaved edits → orange dot, persisted in state
+  finalEl.oninput = () => {
+    const i = state.currentIdx;
+    const cur = state.project.segments[i];
+    if (cur.final) return; // already confirmed, don't downgrade
+    const val = finalEl.value.trim();
+    cur._touched = !!val;
+    updateSidebarItem(i);
+  };
+
+  // Save cursor
+  api(`/api/projects/${state.project.id}/cursor`, {
+    method: 'PATCH', body: { cursor: idx },
+  }).catch(() => {});
+}
+
+function renderOriginal(text) {
+  const el = document.getElementById('ws-original-text');
+  // Highlight matched glossary terms
+  const terms = matchGlossary(text);
+  if (!terms.length) { el.textContent = text; return; }
+  let html = escHtml(text);
+  terms.forEach(({ en, zh, note }) => {
+    const escaped = escHtml(en).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const title = note ? `${zh}（${note}）` : zh;
+    html = html.replace(
+      new RegExp(`(?<![\\w])${escaped}(?![\\w])`, 'gi'),
+      `<span class="hl-term" title="${escHtml(title)}">$&</span>`
+    );
+  });
+  el.innerHTML = html;
+}
+
+function renderGlossaryBar(text) {
+  const terms = matchGlossary(text);
+  const bar = document.getElementById('ws-glossary-bar');
+  const chips = document.getElementById('glossary-chips');
+  if (!terms.length) {
+    chips.innerHTML = '<span style="font-family:JetBrains Mono,monospace;font-size:0.68rem;color:var(--mist)">本段无匹配术语</span>';
+  } else {
+    chips.innerHTML = terms.map(t =>
+      `<span class="glossary-chip">
+        <span class="en">${escHtml(t.en)}</span>
+        <span class="arrow">→</span>
+        <span class="zh">${escHtml(t.zh)}</span>
+      </span>`
+    ).join('');
+  }
+}
+
+function matchGlossary(text) {
+  return state.glossary.filter(t =>
+    t.en && new RegExp(`(?<![\\w])${escRegex(t.en)}(?![\\w])`, 'gi').test(text)
+  );
+}
+
+function escRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+function renderMessages(ai, messages) {
+  const el = document.getElementById(`msgs-${ai}`);
+  if (!messages.length) {
+    el.innerHTML = '<div style="padding:1rem;font-family:JetBrains Mono,monospace;font-size:0.72rem;color:var(--mist)">暂无译文</div>';
+    return;
+  }
+  el.innerHTML = messages.map(m => `
+    <div class="msg ${m.role}">
+      <div class="msg-role">${m.role === 'user' ? '你' : ai.toUpperCase()}</div>
+      <div class="msg-body">${escHtml(m.content)}</div>
+    </div>
+  `).join('');
+  el.scrollTop = el.scrollHeight;
+}
+
+// ══════════════════════════════════════
+// AI CHAT (per-segment)
+// ══════════════════════════════════════
+function handleInputKey(e, ai) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(ai); }
+}
+
+async function sendMsg(ai) {
+  const input = document.getElementById(`input-${ai}`);
+  const text = input.value.trim();
+  if (!text) return;
+
+  const idx = state.currentIdx;
+  const seg = state.project.segments[idx];
+  const entry = state.project.entries[idx];
+
+  input.value = '';
+  document.getElementById(`send-${ai}`).disabled = true;
+
+  // Build messages
+  const sysPrompt = buildSystemPrompt(state.project.meta.mode);
+  const glossaryCtx = buildGlossaryContext(entry.original);
+
+  // If first user message, prepend original
+  const msgs = [...seg[ai].messages];
+  if (!msgs.length || msgs[0].role === 'assistant') {
+    // First user message includes original for context
+  }
+  // Build user content: first message includes original + existing translation if any
+  let userContent;
+  if (msgs.length === 0) {
+    const existingCtx = entry.existing
+      ? `\n\n现有译文：\n${entry.existing}` : '';
+    userContent = `原文：\n${entry.original}${existingCtx}${glossaryCtx}\n\n${text}`;
+  } else if (msgs.length === 1 && msgs[0].role === 'assistant') {
+    // Only AI init message so far, first user turn — include original for context
+    userContent = `原文：\n${entry.original}${glossaryCtx}\n\n${text}`;
+  } else {
+    userContent = text;
+  }
+
+  msgs.push({ role: 'user', content: userContent });
+
+  // Optimistically render
+  seg[ai].messages = msgs;
+  renderMessages(ai, msgs);
+  appendLoadingMsg(ai);
+
+  try {
+    const reply = await callAI(ai, sysPrompt, msgs);
+    msgs.push({ role: 'assistant', content: reply });
+    seg[ai].messages = msgs;
+    seg[ai].latest = reply;
+
+    // Persist
+    await api(`/api/projects/${state.project.id}/segment/${idx}`, {
+      method: 'PATCH',
+      body: { [ai]: { messages: msgs, latest: reply } },
+    });
+
+    renderMessages(ai, msgs);
+    updateSidebarItem(idx);
+  } catch(e) {
+    msgs.push({ role: 'assistant', content: `[错误] ${e.message}` });
+    renderMessages(ai, msgs);
+    toast('请求失败：' + e.message);
+  } finally {
+    document.getElementById(`send-${ai}`).disabled = false;
+  }
+}
+
+function appendLoadingMsg(ai) {
+  const el = document.getElementById(`msgs-${ai}`);
+  const div = document.createElement('div');
+  div.className = 'msg assistant loading';
+  div.innerHTML = `<div class="msg-role">${ai.toUpperCase()}</div>
+    <div class="msg-body"><div class="spinner"></div> 生成中…</div>`;
+  el.appendChild(div);
+  el.scrollTop = el.scrollHeight;
+}
+
+async function callAI(ai, sysPrompt, messages) {
+  if (ai === 'claude') {
+    const res = await fetch('/api/ai/claude', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-opus-4-5',
+        max_tokens: 2000,
+        system: sysPrompt,
+        messages,
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message || res.statusText);
+    return d.content?.[0]?.text || '';
+  }
+
+  if (ai === 'gpt') {
+    const res = await fetch('/api/ai/openai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'gpt-4o',
+        max_tokens: 2000,
+        messages: [{ role: 'system', content: sysPrompt }, ...messages],
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message || res.statusText);
+    return d.choices?.[0]?.message?.content || '';
+  }
+
+  if (ai === 'gemini') {
+    // Convert to Gemini format
+    const contents = messages.map(m => ({
+      role: m.role === 'user' ? 'user' : 'model',
+      parts: [{ text: m.content }],
+    }));
+    const res = await fetch('/api/ai/gemini', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: sysPrompt }] },
+        contents,
+        generationConfig: { maxOutputTokens: 2000 },
+      }),
+    });
+    const d = await res.json();
+    if (!res.ok) throw new Error(d.error?.message || res.statusText);
+    return d.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  }
+}
+
+// ══════════════════════════════════════
+// SYSTEM PROMPT BUILDER
+// ══════════════════════════════════════
+function buildSystemPrompt(mode) {
+  // Unified: always use translate prompt for bulk initial pass
+  // Per-segment chat can reference proofreadPrompt via manual instruction
+  return state.settings.systemPrompt || '';
+}
+
+function buildGlossaryContext(originalText) {
+  const matched = matchGlossary(originalText);
+  if (!matched.length) return '';
+  const lines = matched.map(t => `- ${t.en} → ${t.zh}${t.note ? `（${t.note}）` : ''}`).join('\n');
+  return `\n\n【本段相关术语】\n${lines}`;
+}
+
+// ══════════════════════════════════════
+// USE / CONFIRM
+// ══════════════════════════════════════
+function useTrans(ai) {
+  const idx = state.currentIdx;
+  const seg = state.project.segments[idx];
+  const latest = seg[ai].latest || seg[ai].messages.filter(m => m.role === 'assistant').at(-1)?.content || '';
+  if (!latest) { toast('该 AI 暂无译文'); return; }
+  document.getElementById('final-text').value = latest;
+  if (!seg.final) {
+    seg._touched = true;
+    updateSidebarItem(idx);
+  }
+}
+
+async function confirmSegment() {
+  const val = document.getElementById('final-text').value.trim();
+  if (!val) { toast('请先填写定稿'); return; }
+
+  const idx = state.currentIdx;
+  await api(`/api/projects/${state.project.id}/segment/${idx}`, {
+    method: 'PATCH', body: { final: val },
+  });
+
+  state.project.segments[idx].final = val;
+  state.project.segments[idx]._touched = false;
+  updateSidebarItem(idx);
+  updateDoneCount();
+  updateExportBar();
+  toast('✓ 已保存');
+
+  if (idx < state.project.segments.length - 1) navigate(1);
+}
+
+// ══════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════
+function navigate(dir) {
+  const next = state.currentIdx + dir;
+  if (next < 0 || next >= state.project.segments.length) return;
+  renderSegment(next);
+}
+
+// ══════════════════════════════════════
+// GLOSSARY
+// ══════════════════════════════════════
+function openAddGlossaryFromBar() {
+  // Pre-fill with selected text if any
+  const sel = window.getSelection()?.toString().trim();
+  if (sel) document.getElementById('g-en').value = sel;
+  openModal('modal-add-glossary');
+}
+
+async function addGlossaryEntry() {
+  const en = document.getElementById('g-en').value.trim();
+  const zh = document.getElementById('g-zh').value.trim();
+  if (!en || !zh) { toast('请填写英文和中文'); return; }
+  const note = document.getElementById('g-note').value.trim();
+  const tagsRaw = document.getElementById('g-tags').value.trim();
+  const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+  const entry = await api('/api/glossary/entry', {
+    method: 'POST', body: { en, zh, note, tags },
+  });
+  state.glossary.push(entry);
+
+  // Clear fields
+  ['g-en','g-zh','g-note','g-tags'].forEach(id => document.getElementById(id).value = '');
+  closeModal('modal-add-glossary');
+
+  // Refresh glossary bar for current segment
+  const entry2 = state.project.entries[state.currentIdx];
+  if (entry2) {
+    renderOriginal(entry2.original);
+    renderGlossaryBar(entry2.original);
+  }
+  toast('术语已添加');
+}
+
+// ══════════════════════════════════════
+// EXPORT
+// ══════════════════════════════════════
+function updateExportBar() {
+  if (!state.project) return;
+  const done = state.project.segments.filter(s => s.final).length;
+  document.getElementById('export-count').textContent = done;
+  const bar = document.getElementById('ws-export-bar');
+  if (done > 0) bar.classList.add('show'); else bar.classList.remove('show');
+}
+
+function exportCSV() {
+  const rows = state.project.entries.map((e, i) => {
+    const final = state.project.segments[i]?.final || '';
+    return `${csvEsc(e.key)},${csvEsc(e.original)},${csvEsc(final)}`;
+  });
+  const blob = new Blob(['\uFEFF' + rows.join('\n')], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url;
+  const suffix = document.getElementById('export-suffix')?.value ?? '_translated';
+  const base = (state.project.meta.filename || 'export').replace(/\.csv$/i, '');
+  a.download = base + suffix + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+  toast('CSV 已导出');
+}
+
+function csvEsc(s) {
+  s = s || '';
+  if (s.includes(',') || s.includes('"') || s.includes('\n'))
+    return '"' + s.replace(/"/g, '""') + '"';
+  return s;
+}
+
+// ══════════════════════════════════════
+// UI HELPERS
+// ══════════════════════════════════════
+function segStatusClass(seg, idx) {
+  if (seg.final) return 'done';
+  if (seg._touched) return 'modified';   // user edited final-text but hasn't confirmed
+  if (seg.claude.latest || seg.gpt.latest || seg.gemini.latest) return 'partial';
+  // proofread: pre-filled existing translation counts as partial
+  const entry = state.project?.entries[idx ?? 0];
+  if (entry?.existing) return 'partial';
+  return '';
+}
+
+function updateSidebarItem(idx) {
+  const seg = state.project.segments[idx];
+  const el = document.getElementById(`seg-item-${idx}`);
+  if (!el) return;
+  el.querySelector('.seg-status').className = 'seg-status ' + segStatusClass(seg, idx);
+}
+
+function updateDoneCount() {
+  if (!state.project) return;
+  const done = state.project.segments.filter(s => s.final).length;
+  document.getElementById('ws-done').textContent = done;
+}
+
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+
+// Close modal on backdrop click
+document.querySelectorAll('.modal-overlay').forEach(el => {
+  el.addEventListener('click', e => { if (e.target === el) el.classList.remove('show'); });
+});
+
+function toast(msg, dur = 2200) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), dur);
+}
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ══════════════════════════════════════
+// RESIZE HANDLE
+// ══════════════════════════════════════
+function initResizeHandle() {
+  const handle = document.getElementById('ws-resize-handle');
+  const finalEl = document.getElementById('ws-final');
+  const colsEl  = document.querySelector('.ws-columns');
+  if (!handle || !finalEl || !colsEl) return;
+
+  let dragging = false;
+  let startY = 0;
+  let startFinalH = 0;
+
+  handle.addEventListener('mousedown', e => {
+    dragging = true;
+    startY = e.clientY;
+    startFinalH = finalEl.getBoundingClientRect().height;
+    document.body.style.cursor = 'ns-resize';
+    document.body.style.userSelect = 'none';
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const delta = startY - e.clientY; // drag up = bigger final area
+    const newH = Math.max(80, Math.min(window.innerHeight * 0.6, startFinalH + delta));
+    finalEl.style.maxHeight = newH + 'px';
+    finalEl.style.minHeight = newH + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+}
+
+// ══════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════
+init().catch(e => {
+  document.body.innerHTML = `<div style="padding:3rem;font-family:monospace;color:#c0392b">
+    <h2>无法连接到后端服务</h2>
+    <p style="margin-top:1rem">请先运行：<code>python server.py</code></p>
+    <p style="margin-top:0.5rem;color:#888">错误：${e.message}</p>
+  </div>`;
+});
+</script>
+</body>
+</html>
